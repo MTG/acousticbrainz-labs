@@ -28,7 +28,7 @@ def genTempoCurve(ibi, beats, tStep):
     iFn = interp1d(beats, ibi, kind='cubic')
     tc = iFn(tcTimes)
     tc = gaussianSmooth(tc, tStep)
-    return np.round(tcTimes,3), np.round(tc,3)
+    return np.round(tcTimes,1), np.round(tc,1)
     
 def estBeatStability(ibi, perc, thres):
     ibisort = np.sort(ibi)
@@ -38,47 +38,53 @@ def estBeatStability(ibi, perc, thres):
         stable = True
     else:
         stable = False
-    return beatVar, stable
+    return round(beatVar,2), stable
     
-def batchProcess(bpath, thres, perc, tstep):
+def batchProcess(bpath,outpath, thres, thresRamp, perc, tstep):
     batchResults = []
     for root, dirs, files in os.walk(bpath):
         for f in files:
             fullpath = os.path.join(root, f)
             if os.path.splitext(fullpath)[1] == '.json':
-                result = singleFileProcess(fullpath, thres, perc, tstep)
-                result['path'] = fullpath
-                batchResults.append(result)
-    return batchResults
+                result = singleFileProcess(fullpath, thres, thresRamp, perc, tstep)
+                sDir = fullpath.split('/')
+                try:
+                    os.makedirs(os.path.join(outpath, sDir[-3], sDir[-2]))
+                except:
+                    pass
+                json.dump(result, open(os.path.join(outpath, sDir[-3], sDir[-2], f), 'w'))
+                 
+    return True
 
-def singleFileProcess(fpath, thres, perc, tstep):
+def singleFileProcess(fpath, thres, thresRamp, perc, tstep):
     print str('Processing file: ' + fpath)
     feat = json.load(open(fpath))
     beats = feat['rhythm']['beats_position']
     ibi = 60.0/np.diff(beats)
     tcTimes, tc = genTempoCurve(ibi, beats[1:], tstep)
+    N = len(tc)
+    valsStart = np.median(tc[int(.10*N):int(.25*N)])
+    valsEnd = np.median(tc[int(.75*N):int(.90*N)])
+    
     result = {}
+    result['speedUp'] = False
     result['tempoCurve'] = [tcTimes.tolist(), tc.tolist()]
     result['beatVar'], result['stableBeat'] = estBeatStability(ibi, perc, thres)
+    result['tempoVar'] = round(100*abs(valsStart- valsEnd)/float(np.median(tc)),2)
+    if result['tempoVar'] > thresRamp:
+        result['speedUp'] = True
     return result
 
 if __name__ == "__main__":
     currTime = time.time()
     parser = OptionParser()
     parser.add_option("-b", "--bpath", dest="basepath", default='NONE', help="Path to the base folder")
+    parser.add_option("-o", "--opath", dest="outpath", default='NONE', help="Path to the output folder")
     parser.add_option("-t", "--threshold", dest="thres", default=2.0, help="Standard Deviation threshold in BPM")
+    parser.add_option("-v", "--thresholdRamp", dest="thresRamp", default=20.0, help="Percentage change in median tempo to declare a speed up in the song")
     parser.add_option("-p", "--percentile", dest="percentile", default=80.0, help="Percentile used to compute std.")
     parser.add_option("-s", "--step", dest="tstep", default=0.5, help="Time step in second")
     (options, args) = parser.parse_args()
-    if args:
-        result = singleFileProcess(args[0], options.thres, options.percentile, options.tstep)
-        print time.time() - currTime
-        plt.plot(result['tempoCurve'][0],result['tempoCurve'][1])
-        print result['beatVar'], result['stableBeat']
-        plt.show()
-    elif options.basepath != 'NONE':
-        batchResults = batchProcess(options.basepath,options.thres, options.percentile, options.tstep)
-        print time.time() - currTime
-        for result in batchResults:
-            print len(result['tempoCurve'][0])*options.tstep, result['beatVar'], result['stableBeat']
+    batchResults = batchProcess(options.basepath,options.outpath, options.thres, options.thresRamp, options.percentile, options.tstep)
     
+    print "TIME : " + str(time.time() - currTime)
