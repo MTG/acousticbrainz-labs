@@ -61,17 +61,24 @@ def estBeatStability(ibi, perc, thres):
     
 def batchProcess(bpath,outpath, thres=2.0, thresRamp=20.0, perc=80.0, tstep=0.5):
     batchResults = []
+    cnt = 0
     for root, dirs, files in os.walk(bpath):
         for f in files:
             fullpath = os.path.join(root, f)
             if os.path.splitext(fullpath)[1] == '.json':
-                result = singleFileProcess(fullpath, thres, thresRamp, perc, tstep)
+                try:
+                    result = singleFileProcess(fullpath, thres, thresRamp, perc, tstep)
+                except: 
+                    cnt+=1
+                    continue
                 sDir = fullpath.split('/')
                 try:
                     os.makedirs(os.path.join(outpath, sDir[-3], sDir[-2]))
                 except:
                     pass
                 json.dump(result, open(os.path.join(outpath, sDir[-3], sDir[-2], f), 'w'))
+    
+    print "Could not process %d number of files"%cnt
                  
     return True
 
@@ -106,5 +113,6 @@ if __name__ == "__main__":
     parser.add_option("-s", "--step", dest="tstep", default=0.5, help="Time step in second")
     (options, args) = parser.parse_args()
     batchResults = batchProcess(os.path.join(options.basepath,dirs[int(options.dirInd)]),options.outpath, options.thres, options.thresRamp, options.percentile, options.tstep)
+    
     
     print "TIME : " + str(time.time() - currTime)
