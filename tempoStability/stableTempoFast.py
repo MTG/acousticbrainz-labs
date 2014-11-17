@@ -112,7 +112,8 @@ if __name__ == "__main__":
     parser.add_option("-p", "--percentile", dest="percentile", default=80.0, help="Percentile used to compute std.")
     parser.add_option("-s", "--step", dest="tstep", default=0.5, help="Time step in second")
     (options, args) = parser.parse_args()
-    batchResults = batchProcess(os.path.join(options.basepath,dirs[int(options.dirInd)]),options.outpath, options.thres, options.thresRamp, options.percentile, options.tstep)
+    for ii in range(64*(int(options.dirInd)-1), 64*(int(options.dirInd))):
+        batchResults = batchProcess(os.path.join(options.basepath,dirs[ii]),options.outpath, options.thres, options.thresRamp, options.percentile, options.tstep)
     
     
     print "TIME : " + str(time.time() - currTime)
