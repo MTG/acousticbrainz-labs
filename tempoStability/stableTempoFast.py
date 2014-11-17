@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from optparse import OptionParser
 from scipy.interpolate import interp1d
 import time
+from scipy.signal import filtfilt
 
 def gaussianSmooth(ibi,tStep):
     degree = max(int(5.0/float(tStep)),2)   # 5 second smoothing window, but atleast two samples
@@ -23,11 +24,28 @@ def gaussianSmooth(ibi,tStep):
         smoothed[i]=sum(np.array(ibi[i:i+window])*weight)/sumWt
     return smoothed
 
+def gaussianSmooth1(ibi,tStep):
+    degree = max(int(2.5/float(tStep)),2)   # 2.5 second smoothing window, but atleast two samples
+    window=degree*2-1  
+    weight=np.array([1.0]*window)  
+    weightGauss=[]
+    for i in range(window):  
+        i=i-degree+1  
+        frac=i/float(window)  
+        gauss=1/(np.exp((4*(frac))**2))  
+        weightGauss.append(gauss)  
+    weight=np.array(weightGauss)*weight  
+    smoothed=np.zeros((len(ibi)-window))
+    sumWt = sum(weight)
+    smoothed = filtfilt(weight,[sumWt], ibi)
+    return smoothed
+
+
 def genTempoCurve(ibi, beats, tStep):
     tcTimes = np.arange(beats[0], beats[-1], tStep)
-    iFn = interp1d(beats, ibi, kind='cubic')
+    iFn = interp1d(beats, ibi, kind='linear')
     tc = iFn(tcTimes)
-    tc = gaussianSmooth(tc, tStep)
+    tc = gaussianSmooth1(tc, tStep)
     return np.round(tcTimes,1), np.round(tc,1)
     
 def estBeatStability(ibi, perc, thres):
@@ -40,7 +58,7 @@ def estBeatStability(ibi, perc, thres):
         stable = False
     return round(beatVar,2), stable
     
-def batchProcess(bpath,outpath, thres, thresRamp, perc, tstep):
+def batchProcess(bpath,outpath, thres=2.0, thresRamp=20.0, perc=80.0, tstep=0.5):
     batchResults = []
     for root, dirs, files in os.walk(bpath):
         for f in files:
@@ -57,7 +75,7 @@ def batchProcess(bpath,outpath, thres, thresRamp, perc, tstep):
     return True
 
 def singleFileProcess(fpath, thres, thresRamp, perc, tstep):
-    print str('Processing file: ' + fpath)
+    #print str('Processing file: ' + fpath)
     feat = json.load(open(fpath))
     beats = feat['rhythm']['beats_position']
     ibi = 60.0/np.diff(beats)
@@ -65,7 +83,6 @@ def singleFileProcess(fpath, thres, thresRamp, perc, tstep):
     N = len(tc)
     valsStart = np.median(tc[int(.10*N):int(.25*N)])
     valsEnd = np.median(tc[int(.75*N):int(.90*N)])
-    
     result = {}
     result['speedUp'] = False
     result['tempoCurve'] = [tcTimes.tolist(), tc.tolist()]
