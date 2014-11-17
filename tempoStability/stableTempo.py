@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from optparse import OptionParser
 from scipy.interpolate import interp1d
+import time
 
 def gaussianSmooth(ibi,tStep):
     degree = max(int(5.0/float(tStep)),2)   # 5 second smoothing window, but atleast two samples
@@ -62,6 +63,7 @@ def singleFileProcess(fpath, thres, perc, tstep):
     return result
 
 if __name__ == "__main__":
+    currTime = time.time()
     parser = OptionParser()
     parser.add_option("-b", "--bpath", dest="basepath", default='NONE', help="Path to the base folder")
     parser.add_option("-t", "--threshold", dest="thres", default=2.0, help="Standard Deviation threshold in BPM")
@@ -70,11 +72,13 @@ if __name__ == "__main__":
     (options, args) = parser.parse_args()
     if args:
         result = singleFileProcess(args[0], options.thres, options.percentile, options.tstep)
+        print time.time() - currTime
         plt.plot(result['tempoCurve'][0],result['tempoCurve'][1])
         print result['beatVar'], result['stableBeat']
         plt.show()
     elif options.basepath != 'NONE':
         batchResults = batchProcess(options.basepath,options.thres, options.percentile, options.tstep)
+        print time.time() - currTime
         for result in batchResults:
             print len(result['tempoCurve'][0])*options.tstep, result['beatVar'], result['stableBeat']
     
