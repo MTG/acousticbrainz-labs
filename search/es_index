@@ -1,0 +1,126 @@
+    "lowlevel": { "date_detection": false }
+es.put_mapping(index="acousticbrainz", doc_type="highlevel", mapping={"date_detection": False})
+
+{ "musicbrainz_artistid": {"type": "string", "index": "not_analyzed"} }
+{ "musicbrainz_albumid": {"type": "string", "index": "not_analyzed"} }
+{ "musicbrainz_albumartistid": {"type": "string", "index": "not_analyzed"} }
+{ "musicbrainz_releasegroupid": {"type": "string", "index": "not_analyzed"} }
+{ "musicbrainz_workid": {"type": "string", "index": "not_analyzed"} }
+{ "musicbrainz_recordingid": {"type": "string", "index": "not_analyzed"} }
+{ "artist": {"type": "string", "index": "analyzed"} }
+{ "album": {"type": "string", "index": "analyzed"} }
+{ "title": {"type": "string", "index": "analyzed"} }
+
+{
+    "mappings": {
+        "movie" : {"properties": {"name_suggest": {"type": "completion"}}}
+        , "album": {"properties" : {"name_suggest" : {"type" :     "completion"}}}
+        , "item": {"properties" : {"name_suggest" : {"type" :     "completion"}}}
+    }
+}
+
+# `term` and `phrase` suggesters do spelling correction.
+{
+"properties" : {
+    "name" : { "type" : "string" },
+        "suggest" : { "type" : "completion",
+            "index_analyzer" : "simple",
+            "search_analyzer" : "simple",
+            "payloads" : true
+        }
+}
+}
+
+# Then you can add data like this:
+# set `payloads`=True to add a payload value, which is returned with
+# the results
+
+{
+    "name" : "Nevermind",
+    "suggest" : {
+        "input": [ "Nevermind", "Nirvana" ],
+        "output": "Nirvana - Nevermind",
+        "payload" : { "artistId" : 2321 },
+        "weight" : 34
+    }
+}
+
+# Or more simply:
+{
+  "name" : "Nevermind",
+  "suggest" : "Nevermind"
+}
+
+# Storing an entry as both analyzed and not_analyzed:
+"title": {
+    "type": "string",
+    "index": "analyzed",
+    "fields": {
+        "raw":   { "type": "string", "index": "not_analyzed" }
+    }
+}
+# is accessible as name.raw
+
+
+# Adding copy_to parameter to any field mapping will cause all values of this
+# field to be copied to fields specified in the parameter. In the following
+# example all values from fields title and abstract will be copied to the
+# field meta_data.
+
+{
+  "book" : {
+    "properties" : {
+      "title" : { "type" : "string", "copy_to" : "meta_data" },
+      "abstract" : { "type" : "string", "copy_to" : "meta_data" },
+      "meta_data" : { "type" : "string" }
+    }
+}
+
+# Don't store the source
+{"lowlevel": {"_source": {"enabled": false}}}
+
+
+# must follow the mapping
+{"lowlevel": {
+    "dynamic": "strict",
+     "properties": {
+
+        }
+    }
+}
+
+
+# Type nested, not type object for lists of objects
+
+{
+  "gb": {
+    "tweet": {
+      "properties": {
+        "tweet":            { "type": "string" },
+        "user": {
+          "type":             "object",
+          "properties": {
+            "id":           { "type": "string" },
+            "gender":       { "type": "string" },
+            "age":          { "type": "long"   },
+            "name":   {
+              "type":         "object",
+              "properties": {
+                "full":     { "type": "string" },
+                "first":    { "type": "string" },
+                "last":     { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+_all: a thing that can hold data from lots of fields (e.g. all genres, all tags)
+
+
+lower-casing
+stemming?  (english analyzer)
+stop words

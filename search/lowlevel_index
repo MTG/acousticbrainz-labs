@@ -1,0 +1,54 @@
+{
+    "_source": {"enabled": false},
+    "date_detection": false,
+    "properties": {
+        "mbid": {
+            "type": "string",
+            "index": "not_analyzed"
+        },
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "tags": {
+                    "type": "object",
+                    "properties": {
+            "musicbrainz_artistid": {"type": "string", "index": "not_analyzed"},
+            "musicbrainz_albumid": {"type": "string", "index": "not_analyzed"},
+            "musicbrainz_albumartistid": {"type": "string", "index": "not_analyzed"},
+            "musicbrainz_releasegroupid": {"type": "string", "index": "not_analyzed"},
+            "musicbrainz_workid": {"type": "string", "index": "not_analyzed"},
+            "musicbrainz_recordingid": {"type": "string", "index": "not_analyzed"},
+            "artist": {
+                "type": "string",
+                "index": "analyzed",
+                "copy_to": "metadata.tags.artistalbum",
+                "fields": {
+                    "raw": { "type": "string", "index": "not_analyzed" }
+                }
+            },
+            "album": {
+                "type": "string",
+                "index": "analyzed",
+                "copy_to": "metadata.tags.artistalbum",
+                "fields": {
+                    "raw": { "type": "string", "index": "not_analyzed" }
+                }
+            },
+            "title": {
+                "type": "string",
+                "index": "analyzed",
+                "fields": {
+                    "raw": { "type": "string", "index": "not_analyzed" }
+                }
+            },
+            "artist_complete": {"type": "completion", "payloads": true},
+            "album_complete": {"type": "completion", "payloads": true},
+            "title_complete": {"type": "completion", "payloads": true},
+            "artisttitle_complete": {"type": "completion", "payloads": true},
+            "artistalbum" {"type": "string"}
+                }
+            }
+        }
+    }
+}
+}
