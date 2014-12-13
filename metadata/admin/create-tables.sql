@@ -3,7 +3,7 @@ BEGIN;
 -- tables
 
 CREATE TABLE lastfm (
-    id integer NOT NULL,
+    id SERIAL,
     mbid uuid NOT NULL,
     data json NOT NULL,
     added timestamp with time zone DEFAULT now(),
@@ -12,7 +12,7 @@ CREATE TABLE lastfm (
 
 
 CREATE TABLE tempo (
-    id integer NOT NULL,
+    id SERIAL,
     mbid uuid NOT NULL,
     data json NOT NULL,
     added timestamp with time zone DEFAULT now(),

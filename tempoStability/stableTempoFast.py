@@ -9,33 +9,33 @@ import pickle
 
 def gaussianSmooth(ibi,tStep):
     degree = max(int(5.0/float(tStep)),2)   # 5 second smoothing window, but atleast two samples
-    window=degree*2-1  
-    weight=np.array([1.0]*window)  
+    window=degree*2-1
+    weight=np.array([1.0]*window)
     weightGauss=[]
     ibi = np.append(np.append(np.zeros(degree-1), ibi), np.zeros(degree))
-    for i in range(window):  
-        i=i-degree+1  
-        frac=i/float(window)  
-        gauss=1/(np.exp((4*(frac))**2))  
-        weightGauss.append(gauss)  
-    weight=np.array(weightGauss)*weight  
+    for i in range(window):
+        i=i-degree+1
+        frac=i/float(window)
+        gauss=1/(np.exp((4*(frac))**2))
+        weightGauss.append(gauss)
+    weight=np.array(weightGauss)*weight
     smoothed=np.zeros((len(ibi)-window))
     sumWt = sum(weight)
-    for i in range(len(smoothed)):  
+    for i in range(len(smoothed)):
         smoothed[i]=sum(np.array(ibi[i:i+window])*weight)/sumWt
     return smoothed
 
 def gaussianSmooth1(ibi,tStep):
     degree = max(int(2.5/float(tStep)),2)   # 2.5 second smoothing window, but atleast two samples
-    window=degree*2-1  
-    weight=np.array([1.0]*window)  
+    window=degree*2-1
+    weight=np.array([1.0]*window)
     weightGauss=[]
-    for i in range(window):  
-        i=i-degree+1  
-        frac=i/float(window)  
-        gauss=1/(np.exp((4*(frac))**2))  
-        weightGauss.append(gauss)  
-    weight=np.array(weightGauss)*weight  
+    for i in range(window):
+        i=i-degree+1
+        frac=i/float(window)
+        gauss=1/(np.exp((4*(frac))**2))
+        weightGauss.append(gauss)
+    weight=np.array(weightGauss)*weight
     smoothed=np.zeros((len(ibi)-window))
     sumWt = sum(weight)
     smoothed = filtfilt(weight,[sumWt], ibi)
@@ -48,7 +48,7 @@ def genTempoCurve(ibi, beats, tStep):
     tc = iFn(tcTimes)
     tc = gaussianSmooth1(tc, tStep)
     return np.round(tcTimes,1), np.round(tc,1)
-    
+
 def estBeatStability(ibi, perc, thres):
     ibisort = np.sort(ibi)
     ind = np.floor((100-perc)/200.0*len(ibi))
@@ -58,7 +58,7 @@ def estBeatStability(ibi, perc, thres):
     else:
         stable = False
     return round(beatVar,2), stable
-    
+
 def batchProcess(bpath,outpath, thres=2.0, thresRamp=20.0, perc=80.0, tstep=0.5):
     batchResults = []
     cnt = 0
@@ -68,7 +68,7 @@ def batchProcess(bpath,outpath, thres=2.0, thresRamp=20.0, perc=80.0, tstep=0.5)
             if os.path.splitext(fullpath)[1] == '.json':
                 try:
                     result = singleFileProcess(fullpath, thres, thresRamp, perc, tstep)
-                except: 
+                except:
                     cnt+=1
                     continue
                 sDir = fullpath.split('/')
@@ -77,15 +77,13 @@ def batchProcess(bpath,outpath, thres=2.0, thresRamp=20.0, perc=80.0, tstep=0.5)
                 except:
                     pass
                 json.dump(result, open(os.path.join(outpath, sDir[-3], sDir[-2], f), 'w'))
-    
+
     print "Could not process %d number of files"%cnt
-                 
+
     return True
 
-def singleFileProcess(fpath, thres, thresRamp, perc, tstep):
-    #print str('Processing file: ' + fpath)
-    feat = json.load(open(fpath))
-    beats = feat['rhythm']['beats_position']
+def processData(data, thres, thresRamp, perc, tstep):
+    beats = data['rhythm']['beats_position']
     ibi = 60.0/np.diff(beats)
     tcTimes, tc = genTempoCurve(ibi, beats[1:], tstep)
     N = len(tc)
@@ -99,6 +97,11 @@ def singleFileProcess(fpath, thres, thresRamp, perc, tstep):
     if result['tempoVar'] > thresRamp:
         result['speedUp'] = True
     return result
+
+def singleFileProcess(fpath, thres, thresRamp, perc, tstep):
+    #print str('Processing file: ' + fpath)
+    feat = json.load(open(fpath))
+    return processData(feat, thres, thresRamp, perc, tstep)
 
 if __name__ == "__main__":
     currTime = time.time()
@@ -114,6 +117,6 @@ if __name__ == "__main__":
     (options, args) = parser.parse_args()
     for ii in range(64*(int(options.dirInd)-1), 64*(int(options.dirInd))):
         batchResults = batchProcess(os.path.join(options.basepath,dirs[ii]),options.outpath, options.thres, options.thresRamp, options.percentile, options.tstep)
-    
-    
+
+
     print "TIME : " + str(time.time() - currTime)
