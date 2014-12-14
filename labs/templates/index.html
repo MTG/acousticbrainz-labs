@@ -2,8 +2,9 @@
 
 {% block js %}
 <script>
+  var trackmbid = '';
   $(function() {
-    $("#id_q").autocomplete({
+    $("#inputgenre").autocomplete({
       source: "/autocompletegenre",
       minLength: 2,
     });
@@ -15,13 +16,36 @@
         console.debug(v);
         window.location = "/genre/" + v;
     });
+
+    $("#inputtrack").autocomplete({
+      source: "/autocompletetrack",
+      minLength: 2,
+    });
+
+    $("#inputtrack").on("autocompleteselect", function (e, ui) {
+        e.preventDefault(); // prevent the "value" being written back after we've done our own changes
+        this.value = ui.item.label;
+        trackmbid = ui.item.value;
+    });
+
+    $("#tracksubmit").submit(function(e) {
+        e.preventDefault();
+        window.location = "/track/" + trackmbid;
+    });
   });
   </script>
 {% endblock %}
 
     {% block body %}
+    Search for genre:
     <form id="genresubmit">
-        <input id="id_q" type="text">
+        <input id="inputgenre" type="text">
+        <input type="submit" value="Show">
+    </form>
+    <p>
+    Search for track:
+    <form id="tracksubmit">
+        <input id="inputtrack" type="text">
         <input type="submit" value="Show">
     </form>
 

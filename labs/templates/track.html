@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block js %}
+<script src="/static/Chart.js"></script>
+<script>
+    var data = {{beattrack|safe}};
+  $(function() {
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var myNewChart = new Chart(ctx).Line(data);
+  });
+</script>
+{% endblock %}
+
+{% block body %}
+<h2>{{data["artist"]}} - {{data["title"]}}</h2>
+
+<canvas id="myChart" width="800" height="400"></canvas>
+{% endblock %}

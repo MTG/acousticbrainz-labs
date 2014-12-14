@@ -10,3 +10,14 @@ def get_meta_for_mbid(mbid):
         tags = data["metadata"]["tags"]
         return {"artist": tags.get("artist", [None])[0],
                 "title": tags.get("title", [None])[0]}
+
+def get_click_for_mbid(mbid):
+    conn = psycopg2.connect(config.PG_CONNECT)
+    cur = conn.cursor()
+    cur.execute("SELECT data FROM tempo WHERE mbid = %s", (mbid, ))
+    if cur.rowcount:
+        data = cur.next()[0]
+        time, val = data["tempoCurve"]
+        data = {"labels": time, "datasets": [{"data": val}]}
+        return data
+    return {}
