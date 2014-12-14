@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>AB labs</title>
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+{% block js %}
+{% endblock %}
+
+</head>
+<body>
+ <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Labs</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+    {% block body %}
+
+    {% endblock %}
+    </div><!-- /.container -->
+
+</body>
+</html>
+
