@@ -1,0 +1,37 @@
+{
+    "_source": {"enabled": true},
+    "date_detection": true,
+    "properties": {
+        "mbid": {
+            "type": "string",
+            "index": "not_analyzed"
+        },
+        "lowlevel": {
+            "type": "object",
+            "properties": {
+                "average_loudness": {"type": "float"},
+                "dynamic_complexity": {"type": "float"}
+            }
+        },
+        "rhythm": {
+            "type": "object",
+            "properties": {
+                "bpm": {"type": "float"},
+                "danceability": {"type": "float"},
+                "onset_rate": {"type": "float"}
+            }
+        },
+        "tonal": {
+            "type": "object",
+            "properties": {
+                "chords_key": {"type": "string"},
+                "chords_scale": {"type": "string"},
+                "key_key": {"type": "string"},
+                "key_scale": {"type": "string"},
+                "key_strength": {"type": "float"},
+                "tuning_frequency": {"type": "float"}
+            }
+        }
+    }
+}
+

@@ -1,5 +1,5 @@
 {
-    "_source": {"enabled": false},
+    "_source": {"enabled": true},
     "date_detection": false,
     "properties": {
         "mbid": {
@@ -9,46 +9,78 @@
         "metadata": {
             "type": "object",
             "properties": {
+                "audio_properties": {
+                    "type": "object",
+                    "properties": {
+                        "length": {"type": "float"}
+                    }
+                },
                 "tags": {
                     "type": "object",
                     "properties": {
-            "musicbrainz_artistid": {"type": "string", "index": "not_analyzed"},
-            "musicbrainz_albumid": {"type": "string", "index": "not_analyzed"},
-            "musicbrainz_albumartistid": {"type": "string", "index": "not_analyzed"},
-            "musicbrainz_releasegroupid": {"type": "string", "index": "not_analyzed"},
-            "musicbrainz_workid": {"type": "string", "index": "not_analyzed"},
-            "musicbrainz_recordingid": {"type": "string", "index": "not_analyzed"},
-            "artist": {
-                "type": "string",
-                "index": "analyzed",
-                "copy_to": "metadata.tags.artistalbum",
-                "fields": {
-                    "raw": { "type": "string", "index": "not_analyzed" }
+                        "musicbrainz_artistid": {"type": "string", "index": "not_analyzed"},
+                        "musicbrainz_albumid": {"type": "string", "index": "not_analyzed"},
+                        "musicbrainz_albumartistid": {"type": "string", "index": "not_analyzed"},
+                        "musicbrainz_releasegroupid": {"type": "string", "index": "not_analyzed"},
+                        "musicbrainz_workid": {"type": "string", "index": "not_analyzed"},
+                        "musicbrainz_recordingid": {"type": "string", "index": "not_analyzed"},
+                        "artist": {
+                            "type": "string",
+                            "index": "analyzed",
+                            "copy_to": "metadata.tags.artistalbum",
+                            "fields": {
+                                "raw": { "type": "string", "index": "not_analyzed" }
+                            }
+                        },
+                        "album": {
+                            "type": "string",
+                            "index": "analyzed",
+                            "copy_to": "metadata.tags.artistalbum",
+                            "fields": {
+                                "raw": { "type": "string", "index": "not_analyzed" }
+                            }
+                        },
+                        "title": {
+                            "type": "string",
+                            "index": "analyzed",
+                            "fields": {
+                                "raw": { "type": "string", "index": "not_analyzed" }
+                            }
+                        },
+                        "artist_complete": {"type": "completion", "payloads": true},
+                        "album_complete": {"type": "completion", "payloads": true},
+                        "title_complete": {"type": "completion", "payloads": true},
+                        "artisttitle_complete": {"type": "completion", "payloads": true},
+                        "artistalbum" {"type": "string"}
+                    }
                 }
-            },
-            "album": {
-                "type": "string",
-                "index": "analyzed",
-                "copy_to": "metadata.tags.artistalbum",
-                "fields": {
-                    "raw": { "type": "string", "index": "not_analyzed" }
-                }
-            },
-            "title": {
-                "type": "string",
-                "index": "analyzed",
-                "fields": {
-                    "raw": { "type": "string", "index": "not_analyzed" }
-                }
-            },
-            "artist_complete": {"type": "completion", "payloads": true},
-            "album_complete": {"type": "completion", "payloads": true},
-            "title_complete": {"type": "completion", "payloads": true},
-            "artisttitle_complete": {"type": "completion", "payloads": true},
-            "artistalbum" {"type": "string"}
-                }
+            }
+        },
+        "lowlevel": {
+            "type": "object",
+            "properties": {
+                "average_loudness": {"type": "float"},
+                "dynamic_complexity": {"type": "float"}
+            }
+        },
+        "rhythm": {
+            "type": "object",
+            "properties": {
+                "bpm": {"type": "float"},
+                "danceability": {"type": "float"},
+                "onset_rate": {"type": "float"}
+            }
+        },
+        "tonal": {
+            "type": "object",
+            "properties": {
+                "chords_key": {"type": "string"},
+                "chords_scale": {"type": "string"},
+                "key_key": {"type": "string"},
+                "key_scale": {"type": "string"},
+                "key_strength": {"type": "float"},
+                "tuning_frequency": {"type": "float"}
             }
         }
     }
-}
 }

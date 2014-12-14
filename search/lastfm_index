@@ -1,15 +1,13 @@
 {
-    "date_detection": False,
+    "date_detection": false,
     "properties": {
         "mbid": {
             "type": "string",
             "index": "not_analyzed"
         },
         "toptags": {
-            "type": "object",
             "properties": {
                 "tag": {
-                    "type": "nested",
                     "properties": {
                         "name": {
                             "type": "string",

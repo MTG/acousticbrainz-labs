@@ -1,0 +1,15 @@
+{
+    "_source": {"enabled": false},
+    "dynamic": "strict",
+    "properties": {
+        "mbid": {
+            "type": "string",
+            "index": "not_analyzed"
+        },
+        "beatVar": {"type": "float"},
+        "tempoVar": {"type": "float"},
+        "speedUp": {"type": "boolean"},
+        "stableBeat": {"type": "boolean"}
+    }
+}
+
