@@ -51,7 +51,7 @@
                         "album_complete": {"type": "completion", "payloads": true},
                         "title_complete": {"type": "completion", "payloads": true},
                         "artisttitle_complete": {"type": "completion", "payloads": true},
-                        "artistalbum" {"type": "string"}
+                        "artistalbum": {"type": "string"}
                     }
                 }
             }

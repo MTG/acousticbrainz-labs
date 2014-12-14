@@ -1,5 +1,7 @@
+import index
+import sys
 
-def process(mbid, data)
+def process(mbid, data):
         data["mbid"] = mbid
         # todo: work, releasegroup, albumartist
         tags = data["metadata"]["tags"]
@@ -12,7 +14,7 @@ def process(mbid, data)
         if "album" in tags:
             tags["album_complete"] = {
                 "input": album,
-                "output": "%s - %s" % (artist, album),
+                "output": "%s - %s" % (artist[0], album[0]),
                 "payload" : { "mbid" : albumid } }
         if "artist" in tags:
             tags["artist_complete"] = {
@@ -22,7 +24,14 @@ def process(mbid, data)
         if "title" in tags:
             tags["title_complete"] = {
                 "input": title,
-                "output": "%s - %s" % (artist, title),
+                "output": "%s - %s" % (artist[0], title[0]),
                 "payload" : { "mbid" : recordingid } }
 
         return data
+
+if __name__ == "__main__":
+    name = "lowlevel"
+    if len(sys.argv) > 1 and sys.argv[1] == "config":
+        index.create_schema(schemafile="%s_index" % name, indexname=name)
+    else:
+        index.do_index(tablename=name, indexname=name, process=process)

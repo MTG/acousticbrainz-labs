@@ -20,14 +20,24 @@ def create_schema(schemafile, indexname):
 
 def do_index(tablename, indexname, process):
     conn = psycopg2.connect(config.PG_CONNECT)
-    cur = conn.cursor()
-    cur.execute("SELECT mbid, data::text FROM %s WHERE indexed IS NULL LIMIT 10" % tablename)
-    items = cur.fetchall()
-    toindex = []
-    for mbid, data in items:
-        data = json.loads(data)
-        toindex.append(process(mbid, data))
-    loaddata(indexname, toindex)
+    print "processing 10..."
+    while True:
+        cur = conn.cursor()
+        cur.execute("SELECT mbid, data FROM %s WHERE indexed IS NULL LIMIT 10" % tablename)
+        if cur.rowcount == 0:
+            print "no more to do"
+            break
+        items = cur.fetchall()
+        cur.close()
+        toindex = []
+        for mbid, data in items:
+            #data = json.loads(data)
+            toindex.append(process(mbid, data))
+        loaddata(indexname, toindex)
+        cur = conn.cursor()
+        for mbid, data in items:
+            cur.execute("UPDATE %s SET indexed=now() WHERE mbid=%%s" % tablename, (mbid, ))
+        conn.commit()
 
 
 def loaddata(indexname, data):
