@@ -27,7 +27,9 @@ def track(mbid):
     d = data.get_meta_for_mbid(mbid)
     btdata = data.get_click_for_mbid(mbid)
     bt = json.dumps(btdata)
-    return render_template('track.html', data=d, beattrack=bt)
+    genres, estimated = data.get_genre(mbid)
+    genre = data.tag(mbid)
+    return render_template('track.html', data=d, beattrack=bt, mbid=mbid, genres=genres, genre=genre, estimated=estimated)
 
 @app.route('/autocompletegenre')
 def suggest_genre():

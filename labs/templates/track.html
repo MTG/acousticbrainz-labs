@@ -15,4 +15,20 @@
 <h2>{{data["artist"]}} - {{data["title"]}}</h2>
 
 <canvas id="myChart" width="800" height="400"></canvas>
+
+<p>On Musicbrainz: <a href="http://musicbrainz.org/recording/{{mbid}}">http://musicbrainz.org/recording/{{mbid}}</a><p>
+
+Computed genres:
+<table>
+{% for g in genres %}
+<tr><td>
+        {% if g["class"] == estimated %}<b>{% endif %}        
+        {{g["class"]}}
+        {% if g["class"] == estimated %}</b>{% endif %}        
+
+</td><td>{{g["probability"]}}</td></tr>
+{% endfor %}
+</table>
+
+<h4>Declared genre: {{genre}}</h4>
 {% endblock %}

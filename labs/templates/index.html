@@ -11,7 +11,7 @@
 
     $("#genresubmit").submit(function(e) {
         e.preventDefault();
-        var v = $("#id_q").val();
+        var v = $("#inputgenre").val();
         console.debug("submit");
         console.debug(v);
         window.location = "/genre/" + v;
