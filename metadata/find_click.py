@@ -15,7 +15,10 @@ class ClickTrack(threader.ComputationThread):
     tablename = "tempo"
     def _calculate(self):
         lowlevel = json.loads(self.ll_data)
-        self.data = stableTempoFast.processData(lowlevel, thres=2.0, thresRamp=20.0, perc=80.0, tstep=0.5)
+        try:
+            self.data = stableTempoFast.processData(lowlevel, thres=2.0, thresRamp=20.0, perc=80.0, tstep=0.5)
+        except:
+            self.data = {}
 
     @classmethod
     def write_to_database(cls, conn, mbid, data):

@@ -11,7 +11,7 @@ def process(mbid, data):
         albumid = tags.get("musicbrainz_albumid")
         title = tags.get("title")
         recordingid = tags.get("musicbrainz_recordingid")
-        if "album" in tags:
+        if "album" in tags and artist and album:
             tags["album_complete"] = {
                 "input": album,
                 "output": "%s - %s" % (artist[0], album[0]),
@@ -21,7 +21,7 @@ def process(mbid, data):
                 "input": artist,
                 "output": artist,
                 "payload" : { "mbid" : artistid } }
-        if "title" in tags:
+        if "title" in tags and artist and title:
             tags["title_complete"] = {
                 "input": title,
                 "output": "%s - %s" % (artist[0], title[0]),

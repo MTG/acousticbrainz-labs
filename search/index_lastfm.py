@@ -6,7 +6,7 @@ def process(mbid, data):
     data["mbid"] = mbid
     if "tag" not in tags:
         # No tags, just metadata - move it
-        attr = {"artist": tag.get("artist", ""), "track": tag.get("track", "")}
+        attr = {"artist": tags.get("artist", ""), "track": tags.get("track", "")}
         tags = {"@attr": attr}
     else:
         t = tags["tag"]
