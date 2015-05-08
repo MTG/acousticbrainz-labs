@@ -1,5 +1,6 @@
 {
-    "_source": {"enabled": true},
+    "_source": false,
+    "store":"no",
     "date_detection": false,
     "properties": {
         "mbid": {
