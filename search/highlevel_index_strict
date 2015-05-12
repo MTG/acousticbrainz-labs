@@ -1,0 +1,503 @@
+{
+    "_source": false,
+    "date_detection": true,
+    "dynamic": "strict",
+    "store": "no",
+    "properties": {
+        "mbid": {
+            "type": "string",
+            "index": "not_analyzed"
+        },
+        "lowlevel": {
+            "type": "object",
+            "properties": {
+                "average_loudness": {"type": "float"},
+                "dynamic_complexity": {"type": "float"}
+            }
+        },
+        "rhythm": {
+            "type": "object",
+            "properties": {
+                "bpm": {"type": "float"},
+                "danceability": {"type": "float"},
+                "onset_rate": {"type": "float"}
+            }
+        },
+        "tonal": {
+            "type": "object",
+            "properties": {
+                "chords_key": {"type": "string"},
+                "chords_scale": {"type": "string"},
+                "key_key": {"type": "string"},
+                "key_scale": {"type": "string"},
+                "key_strength": {"type": "float"},
+                "tuning_frequency": {"type": "float"}
+            }
+        },
+        "danceability": {
+            "properties": {
+                "all": {
+                    "properties": {
+                        "danceable": {
+                            "type": "double"
+                        },
+                        "not_danceable": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "probability": {
+                    "type": "double"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "gender": {
+            "properties": {
+                "all": {
+                    "properties": {
+                        "female": {
+                            "type": "double"
+                        },
+                        "male": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "probability": {
+                    "type": "double"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "genre_dortmund": {
+            "properties": {
+                "all": {
+                    "properties": {
+                        "alternative": {
+                            "type": "double"
+                        },
+                        "blues": {
+                            "type": "double"
+                        },
+                        "electronic": {
+                            "type": "double"
+                        },
+                        "folkcountry": {
+                            "type": "double"
+                        },
+                        "funksoulrnb": {
+                            "type": "double"
+                        },
+                        "jazz": {
+                            "type": "double"
+                        },
+                        "pop": {
+                            "type": "double"
+                        },
+                        "raphiphop": {
+                            "type": "double"
+                        },
+                        "rock": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "probability": {
+                    "type": "double"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "genre_electronic": {
+            "properties": {
+                "all": {
+                    "properties": {
+                        "ambient": {
+                            "type": "double"
+                        },
+                        "dnb": {
+                            "type": "double"
+                        },
+                        "house": {
+                            "type": "double"
+                        },
+                        "techno": {
+                            "type": "double"
+                        },
+                        "trance": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "probability": {
+                    "type": "double"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "genre_rosamerica": {
+            "properties": {
+                "all": {
+                    "properties": {
+                        "cla": {
+                            "type": "double"
+                        },
+                        "dan": {
+                            "type": "double"
+                        },
+                        "hip": {
+                            "type": "double"
+                        },
+                        "jaz": {
+                            "type": "double"
+                        },
+                        "pop": {
+                            "type": "double"
+                        },
+                        "rhy": {
+                            "type": "double"
+                        },
+                        "roc": {
+                            "type": "double"
+                        },
+                        "spe": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "probability": {
+                    "type": "double"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "genre_tzanetakis": {
+            "properties": {
+                "all": {
+                    "properties": {
+                        "blu": {
+                            "type": "double"
+                        },
+                        "cla": {
+                            "type": "double"
+                        },
+                        "cou": {
+                            "type": "double"
+                        },
+                        "dis": {
+                            "type": "double"
+                        },
+                        "hip": {
+                            "type": "double"
+                        },
+                        "jaz": {
+                            "type": "double"
+                        },
+                        "met": {
+                            "type": "double"
+                        },
+                        "pop": {
+                            "type": "double"
+                        },
+                        "reg": {
+                            "type": "double"
+                        },
+                        "roc": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "probability": {
+                    "type": "double"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "ismir04_rhythm": {
+            "properties": {
+                "all": {
+                    "properties": {
+                        "ChaChaCha": {
+                            "type": "double"
+                        },
+                        "Jive": {
+                            "type": "double"
+                        },
+                        "Quickstep": {
+                            "type": "double"
+                        },
+                        "Rumba-American": {
+                            "type": "double"
+                        },
+                        "Rumba-International": {
+                            "type": "double"
+                        },
+                        "Rumba-Misc": {
+                            "type": "double"
+                        },
+                        "Samba": {
+                            "type": "double"
+                        },
+                        "Tango": {
+                            "type": "double"
+                        },
+                        "VienneseWaltz": {
+                            "type": "double"
+                        },
+                        "Waltz": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "probability": {
+                    "type": "double"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "mood_acoustic": {
+            "properties": {
+                "all": {
+                    "properties": {
+                        "acoustic": {
+                            "type": "double"
+                        },
+                        "not_acoustic": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "probability": {
+                    "type": "double"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "mood_aggressive": {
+            "properties": {
+                "all": {
+                    "properties": {
+                        "aggressive": {
+                            "type": "double"
+                        },
+                        "not_aggressive": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "probability": {
+                    "type": "double"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "mood_electronic": {
+            "properties": {
+                "all": {
+                    "properties": {
+                        "electronic": {
+                            "type": "double"
+                        },
+                        "not_electronic": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "probability": {
+                    "type": "double"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "mood_happy": {
+            "properties": {
+                "all": {
+                    "properties": {
+                        "happy": {
+                            "type": "double"
+                        },
+                        "not_happy": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "probability": {
+                    "type": "double"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "mood_party": {
+            "properties": {
+                "all": {
+                    "properties": {
+                        "not_party": {
+                            "type": "double"
+                        },
+                        "party": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "probability": {
+                    "type": "double"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "mood_relaxed": {
+            "properties": {
+                "all": {
+                    "properties": {
+                        "not_relaxed": {
+                            "type": "double"
+                        },
+                        "relaxed": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "probability": {
+                    "type": "double"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "mood_sad": {
+            "properties": {
+                "all": {
+                    "properties": {
+                        "not_sad": {
+                            "type": "double"
+                        },
+                        "sad": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "probability": {
+                    "type": "double"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "moods_mirex": {
+            "properties": {
+                "all": {
+                    "properties": {
+                        "Cluster1": {
+                            "type": "double"
+                        },
+                        "Cluster2": {
+                            "type": "double"
+                        },
+                        "Cluster3": {
+                            "type": "double"
+                        },
+                        "Cluster4": {
+                            "type": "double"
+                        },
+                        "Cluster5": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "probability": {
+                    "type": "double"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "timbre": {
+            "properties": {
+                "all": {
+                    "properties": {
+                        "bright": {
+                            "type": "double"
+                        },
+                        "dark": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "probability": {
+                    "type": "double"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "tonal_atonal": {
+            "properties": {
+                "all": {
+                    "properties": {
+                        "atonal": {
+                            "type": "double"
+                        },
+                        "tonal": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "probability": {
+                    "type": "double"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "voice_instrumental": {
+            "properties": {
+                "all": {
+                    "properties": {
+                        "instrumental": {
+                            "type": "double"
+                        },
+                        "voice": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "probability": {
+                    "type": "double"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
