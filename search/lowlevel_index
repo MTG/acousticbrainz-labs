@@ -1,86 +1,2163 @@
 {
-    "_source": false,
-    "store":"no",
+    "_source": {
+        "enabled" : false
+    },
     "date_detection": false,
     "properties": {
         "mbid": {
             "type": "string",
             "index": "not_analyzed"
         },
-        "metadata": {
-            "type": "object",
+        "lowlevel": {
             "properties": {
-                "audio_properties": {
-                    "type": "object",
+                "average_loudness": {
+                    "type": "long"
+                }, 
+                "barkbands": {
                     "properties": {
-                        "length": {"type": "float"}
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
                     }
-                },
-                "tags": {
-                    "type": "object",
+                }, 
+                "barkbands_crest": {
                     "properties": {
-                        "musicbrainz_artistid": {"type": "string", "index": "not_analyzed"},
-                        "musicbrainz_albumid": {"type": "string", "index": "not_analyzed"},
-                        "musicbrainz_albumartistid": {"type": "string", "index": "not_analyzed"},
-                        "musicbrainz_releasegroupid": {"type": "string", "index": "not_analyzed"},
-                        "musicbrainz_workid": {"type": "string", "index": "not_analyzed"},
-                        "musicbrainz_recordingid": {"type": "string", "index": "not_analyzed"},
-                        "artist": {
-                            "type": "string",
-                            "index": "analyzed",
-                            "copy_to": "metadata.tags.artistalbum",
-                            "fields": {
-                                "raw": { "type": "string", "index": "not_analyzed" }
-                            }
-                        },
-                        "album": {
-                            "type": "string",
-                            "index": "analyzed",
-                            "copy_to": "metadata.tags.artistalbum",
-                            "fields": {
-                                "raw": { "type": "string", "index": "not_analyzed" }
-                            }
-                        },
-                        "title": {
-                            "type": "string",
-                            "index": "analyzed",
-                            "fields": {
-                                "raw": { "type": "string", "index": "not_analyzed" }
-                            }
-                        },
-                        "artist_complete": {"type": "completion", "payloads": true},
-                        "album_complete": {"type": "completion", "payloads": true},
-                        "title_complete": {"type": "completion", "payloads": true},
-                        "artisttitle_complete": {"type": "completion", "payloads": true},
-                        "artistalbum": {"type": "string"}
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "barkbands_flatness_db": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "barkbands_kurtosis": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "barkbands_skewness": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "barkbands_spread": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "dissonance": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "dynamic_complexity": {
+                    "type": "long"
+                }, 
+                "erbbands": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "erbbands_crest": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "erbbands_flatness_db": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "erbbands_kurtosis": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "erbbands_skewness": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "erbbands_spread": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "gfcc": {
+                    "properties": {
+                        "cov": {
+                            "type": "long"
+                        }, 
+                        "icov": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "hfc": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "melbands": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "melbands_crest": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "melbands_flatness_db": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "melbands_kurtosis": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "melbands_skewness": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "melbands_spread": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "mfcc": {
+                    "properties": {
+                        "cov": {
+                            "type": "long"
+                        }, 
+                        "icov": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "pitch_salience": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "silence_rate_20dB": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "silence_rate_30dB": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "silence_rate_60dB": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "spectral_centroid": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "spectral_complexity": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "spectral_contrast_coeffs": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "spectral_contrast_valleys": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "spectral_decrease": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "spectral_energy": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "spectral_energyband_high": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "spectral_energyband_low": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "spectral_energyband_middle_high": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "spectral_energyband_middle_low": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "spectral_entropy": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "spectral_flux": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "spectral_kurtosis": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "spectral_rms": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "spectral_rolloff": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "spectral_skewness": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "spectral_spread": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "spectral_strongpeak": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "zerocrossingrate": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
                     }
                 }
             }
-        },
-        "lowlevel": {
-            "type": "object",
+        }, 
+        "metadata": {
             "properties": {
-                "average_loudness": {"type": "float"},
-                "dynamic_complexity": {"type": "float"}
+                "audio_properties": {
+                    "properties": {
+                        "analysis_sample_rate": {
+                            "type": "long"
+                        }, 
+                        "bit_rate": {
+                            "type": "long"
+                        }, 
+                        "codec": {
+                            "type": "string"
+                        }, 
+                        "downmix": {
+                            "type": "string"
+                        }, 
+                        "equal_loudness": {
+                            "type": "long"
+                        }, 
+                        "length": {
+                            "type": "long"
+                        }, 
+                        "lossless": {
+                            "type": "boolean"
+                        }, 
+                        "md5_encoded": {
+                            "type": "string"
+                        }, 
+                        "replay_gain": {
+                            "type": "long"
+                        }, 
+                        "sample_rate": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "tags": {
+                    "properties": {
+                        "acoustid_fingerprint": {
+                            "type": "string"
+                        }, 
+                        "acoustid_id": {
+                            "type": "string"
+                        }, 
+                        "album": {
+                            "type": "string",
+                            "index": "analyzed"
+                        }, 
+                        "album_complete": {
+                            "properties": {
+                                "input": {
+                                    "type": "string"
+                                }, 
+                                "output": {
+                                    "type": "string"
+                                }, 
+                                "payload": {
+                                    "properties": {
+                                        "mbid": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }, 
+                        "albumartist": {
+                            "type": "string"
+                        }, 
+                        "albumartistsort": {
+                            "type": "string"
+                        }, 
+                        "albumsort": {
+                            "type": "string"
+                        },
+                        "arranger": {
+                            "type": "string"
+                        }, 
+                        "artist": {
+                            "type": "string"
+                        }, 
+                        "artist_complete": {
+                            "properties": {
+                                "input": {
+                                    "type": "string"
+                                }, 
+                                "output": {
+                                    "type": "string"
+                                }, 
+                                "payload": {
+                                    "properties": {
+                                        "mbid": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }, 
+                        "artistsort": {
+                            "type": "string"
+                        }, 
+                        "artistwebpage": {
+                            "type": "string"
+                        },
+                        "asin": {
+                            "type": "string"
+                        }, 
+                        "barcode": {
+                            "type": "string"
+                        }, 
+                        "bpm": {
+                            "type": "string"
+                        },
+                        "catalognumber": {
+                            "type": "string"
+                        }, 
+                        "compilation": {
+                            "type": "string"
+                        }, 
+                        "composer": {
+                            "type": "string"
+                        }, 
+                        "composersort": {
+                            "type": "string"
+                        }, 
+                        "conductor": {
+                            "type": "string"
+                        }, 
+                        "contentgroup": {
+                            "type": "string"
+                        }, 
+                        "copyright": {
+                            "type": "string"
+                        }, 
+                        "copyrighturl": {
+                            "type": "string"
+                        },
+                        "date": {
+                            "type": "string"
+                        }, 
+                        "discnumber": {
+                            "type": "string"
+                        }, 
+                        "discsubtitle": {
+                            "type": "string"
+                        }, 
+                        "disctotal": {
+                            "type": "string"
+                        }, 
+                        "djmixer": {
+                            "type": "string"
+                        },
+                        "encodedby": {
+                            "type": "string"
+                        },
+                        "encodersettings": {
+                            "type": "string"
+                        },
+                        "encoding": {
+                            "type": "string"
+                        }, 
+                        "encodingtime": {
+                            "type": "string"
+                        },
+                        "engineer": {
+                            "type": "string"
+                        }, 
+                        "filetype": {
+                            "type": "string"
+                        },
+                        "filewebpage": {
+                            "type": "string"
+                        },
+                        "file_name": {
+                            "type": "string"
+                        }, 
+                        "genre": {
+                            "type": "string"
+                        },
+                        "grouping": {
+                            "type": "string"
+                        },
+                        "initialkey": {
+                            "type": "string"
+                        },
+                        "isrc": {
+                            "type": "string"
+                        }, 
+                        "label": {
+                            "type": "string"
+                        }, 
+                        "language": {
+                            "type": "string"
+                        }, 
+                        "length": {
+                            "type": "string"
+                        },
+                        "license": {
+                            "type": "string"
+                        },
+                        "lyricist": {
+                            "type": "string"
+                        }, 
+                        "media": {
+                            "type": "string"
+                        }, 
+                        "mixer": {
+                            "type": "string"
+                        }, 
+                        "mood": {
+                            "type": "string"
+                        },
+                        "musicbrainz album release country": {
+                            "type": "string"
+                        }, 
+                        "musicbrainz album status": {
+                            "type": "string"
+                        }, 
+                        "musicbrainz album type": {
+                            "type": "string"
+                        }, 
+                        "musicbrainz_albumartistid": {
+                            "type": "string"
+                        }, 
+                        "musicbrainz_albumid": {
+                            "type": "string"
+                        }, 
+                        "musicbrainz_artistid": {
+                            "type": "string"
+                        }, 
+                        "musicbrainz_recordingid": {
+                            "type": "string"
+                        }, 
+                        "musicbrainz_discid": {
+                            "type": "string"
+                        },
+                        "musicbrainz_releasegroupid": {
+                            "type": "string"
+                        }, 
+                        "musicbrainz_releasetrackid": {
+                            "type": "string"
+                        }, 
+                        "musicbrainz_trackid": {
+                            "type": "string"
+                        },
+                        "musicbrainz_trmid": {
+                            "type": "string"
+                        },
+                        "musicbrainz_workid": {
+                            "type": "string"
+                        }, 
+                        "musicip_puid": {
+                            "type": "string"
+                        },
+                        "originalalbum": {
+                            "type": "string"
+                        }, 
+                        "originalartist": {
+                            "type": "string"
+                        }, 
+                        "originaldate": {
+                            "type": "string"
+                        }, 
+                        "originalfilename": { 
+                            "type": "string"
+                        },
+                        "originallyricist": { 
+                            "type": "string"
+                        },
+                        "originalyear": {
+                            "type": "string"
+                        }, 
+                        "owner": {
+                            "type": "string"
+                        },
+                        "paymentwebpage": {
+                            "type": "string"
+                        },
+                        "performer": {
+                            "type": "string"
+                        }, 
+                        "playlistdelay": {   
+                            "type": "string"
+                        },
+                        "producer": {
+                            "type": "string"
+                        }, 
+                        "producednotice": { 
+                            "type": "string"
+                        },
+                        "publisherwebpage": {   
+                            "type": "string"
+                        },
+                        "radiostation": {  
+                            "type": "string"
+                        },
+                        "radiostationowner": { 
+                            "type": "string"
+                        },
+                        "radiostationwebpage": {
+                            "type": "string"
+                        },
+                        "releasecountry": {
+                            "type": "string"
+                        }, 
+                        "releasedate": { 
+                            "type": "string"
+                        },
+                        "releasestatus": {
+                            "type": "string"
+                        }, 
+                        "releasetype": {
+                            "type": "string"
+                        }, 
+                        "remixer": {
+                            "type": "string"
+                        }, 
+                        "script": {
+                            "type": "string"
+                        }, 
+                        "showsort": {   
+                            "type": "string"
+                        },
+                        "subtitle": {
+                            "type": "string"
+                        }, 
+                        "taggingdate": {  
+                            "type": "string"
+                        },
+                        "title": {
+                            "type": "string",
+                            "index": "analyzed"
+                        }, 
+                        "title_complete": {
+                            "type": "completion",
+                            "payloads": true
+                        }, 
+                        "titlesort": {
+                            "type": "string"
+                        }, 
+                        "totaldiscs": {
+                            "type": "string"
+                        }, 
+                        "totaltracks": {
+                            "type": "string"
+                        }, 
+                        "tracknumber": {
+                            "type": "string"
+                        }, 
+                        "tracktotal": {
+                            "type": "string"
+                        }, 
+                        "work": {
+                            "type": "string"
+                        }, 
+                        "website": {
+                            "type": "string"
+                        },
+                        "writer": {
+                            "type": "string"
+                        }
+                    }
+                }, 
+                "version": {
+                    "properties": {
+                        "essentia": {
+                            "type": "string"
+                        }, 
+                        "essentia_build_sha": {
+                            "type": "string"
+                        }, 
+                        "essentia_git_sha": {
+                            "type": "string"
+                        }, 
+                        "extractor": {
+                            "type": "string"
+                        }
+                    }
+                }
             }
-        },
+        }, 
         "rhythm": {
-            "type": "object",
             "properties": {
-                "bpm": {"type": "float"},
-                "danceability": {"type": "float"},
-                "onset_rate": {"type": "float"}
+                "beats_count": {
+                    "type": "long"
+                }, 
+                "beats_loudness": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "beats_loudness_band_ratio": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "beats_position": {
+                    "type": "long"
+                }, 
+                "bpm": {
+                    "type": "long"
+                }, 
+                "bpm_histogram_first_peak_bpm": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "bpm_histogram_first_peak_spread": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "bpm_histogram_first_peak_weight": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "bpm_histogram_second_peak_bpm": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "bpm_histogram_second_peak_spread": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "bpm_histogram_second_peak_weight": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "danceability": {
+                    "type": "long"
+                }, 
+                "onset_rate": {
+                    "type": "long"
+                }
             }
-        },
+        }, 
         "tonal": {
-            "type": "object",
             "properties": {
-                "chords_key": {"type": "string"},
-                "chords_scale": {"type": "string"},
-                "key_key": {"type": "string"},
-                "key_scale": {"type": "string"},
-                "key_strength": {"type": "float"},
-                "tuning_frequency": {"type": "float"}
+                "chords_changes_rate": {
+                    "type": "long"
+                }, 
+                "chords_histogram": {
+                    "type": "long"
+                }, 
+                "chords_key": {
+                    "type": "string"
+                }, 
+                "chords_number_rate": {
+                    "type": "long"
+                }, 
+                "chords_scale": {
+                    "type": "string"
+                }, 
+                "chords_strength": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "hpcp": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "hpcp_entropy": {
+                    "properties": {
+                        "dmean": {
+                            "type": "long"
+                        }, 
+                        "dmean2": {
+                            "type": "long"
+                        }, 
+                        "dvar": {
+                            "type": "long"
+                        }, 
+                        "dvar2": {
+                            "type": "long"
+                        }, 
+                        "max": {
+                            "type": "long"
+                        }, 
+                        "mean": {
+                            "type": "long"
+                        }, 
+                        "median": {
+                            "type": "long"
+                        }, 
+                        "min": {
+                            "type": "long"
+                        }, 
+                        "var": {
+                            "type": "long"
+                        }
+                    }
+                }, 
+                "key_key": {
+                    "type": "string"
+                }, 
+                "key_scale": {
+                    "type": "string"
+                }, 
+                "key_strength": {
+                    "type": "long"
+                },
+                "thpcp": {
+                    "type": "long"
+                }, 
+                "tuning_diatonic_strength": {
+                    "type": "long"
+                }, 
+                "tuning_equal_tempered_deviation": {
+                    "type": "long"
+                }, 
+                "tuning_frequency": {
+                    "type": "long"
+                }, 
+                "tuning_nontempered_energy_ratio": {
+                    "type": "long"
+                }
             }
         }
     }

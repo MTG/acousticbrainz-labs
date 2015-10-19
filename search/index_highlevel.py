@@ -11,9 +11,9 @@ def process(mbid, data):
 def do_index(tablename, indexname, process):
     conn = psycopg2.connect(config.PG_CONNECT)
     while True:
-        print "processing 1000..."
+        print "processing 100..."
         cur = conn.cursor()
-        cur.execute("SELECT h.mbid, j.data FROM highlevel h INNER JOIN highlevel_json j ON h.data=j.id WHERE h.indexed IS NULL LIMIT 1000")
+        cur.execute("SELECT h.mbid, j.data FROM highlevel h INNER JOIN highlevel_json j ON h.data=j.id WHERE h.indexed IS NULL LIMIT 100")
         if cur.rowcount == 0:
             print "no more to do"
             break
@@ -30,7 +30,7 @@ def do_index(tablename, indexname, process):
         conn.commit()
 
 if __name__ == "__main__":
-    name = "lowlevel"
+    name = "highlevel"
     if len(sys.argv) > 1 and sys.argv[1] == "config":
         index.create_schema(schemafile="%s_index" % name, indexname=name)
     else:

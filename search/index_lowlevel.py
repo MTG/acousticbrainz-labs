@@ -26,7 +26,8 @@ def process(mbid, data):
                 "input": title,
                 "output": "%s - %s" % (artist[0], title[0]),
                 "payload" : { "mbid" : recordingid } }
-
+        print title
+        print artist
         return data
 
 if __name__ == "__main__":
