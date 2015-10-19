@@ -13,15 +13,15 @@
                 "all": {
                     "properties": {
                         "danceable": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "not_danceable": {
-                            "type": "long"
+                            "type": "float"
                         }
                     }
                 },
                 "probability": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "value": {
                     "type": "string"
@@ -33,15 +33,15 @@
                 "all": {
                     "properties": {
                         "female": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "male": {
-                            "type": "long"
+                            "type": "float"
                         }
                     }
                 },
                 "probability": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "value": {
                     "type": "string"
@@ -53,36 +53,36 @@
                 "all": {
                     "properties": {
                         "alternative": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "blues": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "electronic": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "folkcountry": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "funksoulrnb": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "jazz": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "pop": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "raphiphop": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "rock": {
-                            "type": "long"
+                            "type": "float"
                         }
                     }
                 },
                 "probability": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "value": {
                     "type": "string"
@@ -94,24 +94,24 @@
                 "all": {
                     "properties": {
                         "ambient": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "dnb": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "house": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "techno": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "trance": {
-                            "type": "long"
+                            "type": "float"
                         }
                     }
                 },
                 "probability": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "value": {
                     "type": "string"
@@ -123,33 +123,33 @@
                 "all": {
                     "properties": {
                         "cla": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "dan": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "hip": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "jaz": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "pop": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "rhy": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "roc": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "spe": {
-                            "type": "long"
+                            "type": "float"
                         }
                     }
                 },
                 "probability": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "value": {
                     "type": "string"
@@ -161,39 +161,39 @@
                 "all": {
                     "properties": {
                         "blu": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "cla": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "cou": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "dis": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "hip": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "jaz": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "met": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "pop": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "reg": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "roc": {
-                            "type": "long"
+                            "type": "float"
                         }
                     }
                 },
                 "probability": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "value": {
                     "type": "string"
@@ -205,39 +205,39 @@
                 "all": {
                     "properties": {
                         "ChaChaCha": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "Jive": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "Quickstep": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "Rumba-American": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "Rumba-International": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "Rumba-Misc": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "Samba": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "Tango": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "VienneseWaltz": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "Waltz": {
-                            "type": "long"
+                            "type": "float"
                         }
                     }
                 },
                 "probability": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "value": {
                     "type": "string"
@@ -249,15 +249,15 @@
                 "all": {
                     "properties": {
                         "acoustic": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "not_acoustic": {
-                            "type": "long"
+                            "type": "float"
                         }
                     }
                 },
                 "probability": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "value": {
                     "type": "string"
@@ -269,15 +269,15 @@
                 "all": {
                     "properties": {
                         "aggressive": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "not_aggressive": {
-                            "type": "long"
+                            "type": "float"
                         }
                     }
                 },
                 "probability": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "value": {
                     "type": "string"
@@ -289,15 +289,15 @@
                 "all": {
                     "properties": {
                         "electronic": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "not_electronic": {
-                            "type": "long"
+                            "type": "float"
                         }
                     }
                 },
                 "probability": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "value": {
                     "type": "string"
@@ -309,15 +309,15 @@
                 "all": {
                     "properties": {
                         "happy": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "not_happy": {
-                            "type": "long"
+                            "type": "float"
                         }
                     }
                 },
                 "probability": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "value": {
                     "type": "string"
@@ -329,15 +329,15 @@
                 "all": {
                     "properties": {
                         "not_party": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "party": {
-                            "type": "long"
+                            "type": "float"
                         }
                     }
                 },
                 "probability": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "value": {
                     "type": "string"
@@ -349,15 +349,15 @@
                 "all": {
                     "properties": {
                         "not_relaxed": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "relaxed": {
-                            "type": "long"
+                            "type": "float"
                         }
                     }
                 },
                 "probability": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "value": {
                     "type": "string"
@@ -369,15 +369,15 @@
                 "all": {
                     "properties": {
                         "not_sad": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "sad": {
-                            "type": "long"
+                            "type": "float"
                         }
                     }
                 },
                 "probability": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "value": {
                     "type": "string"
@@ -389,24 +389,24 @@
                 "all": {
                     "properties": {
                         "Cluster1": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "Cluster2": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "Cluster3": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "Cluster4": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "Cluster5": {
-                            "type": "long"
+                            "type": "float"
                         }
                     }
                 },
                 "probability": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "value": {
                     "type": "string"
@@ -418,15 +418,15 @@
                 "all": {
                     "properties": {
                         "bright": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "dark": {
-                            "type": "long"
+                            "type": "float"
                         }
                     }
                 },
                 "probability": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "value": {
                     "type": "string"
@@ -438,15 +438,15 @@
                 "all": {
                     "properties": {
                         "atonal": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "tonal": {
-                            "type": "long"
+                            "type": "float"
                         }
                     }
                 },
                 "probability": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "value": {
                     "type": "string"
@@ -458,15 +458,15 @@
                 "all": {
                     "properties": {
                         "instrumental": {
-                            "type": "long"
+                            "type": "float"
                         },
                         "voice": {
-                            "type": "long"
+                            "type": "float"
                         }
                     }
                 },
                 "probability": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "value": {
                     "type": "string"
@@ -495,7 +495,7 @@
                     "type": "long"
                 },
                 "length": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "lossless": {
                     "type": "long"
@@ -504,7 +504,7 @@
                     "type": "string"
                 },
                 "replay_gain": {
-                    "type": "long"
+                    "type": "float"
                 },
                 "sample_rate": {
                     "type": "long"
