@@ -565,10 +565,10 @@
                             "type": "long"
                         }, 
                         "dvar": {
-                            "type": "long"
+                            "type": "string"
                         }, 
                         "dvar2": {
-                            "type": "long"
+                            "type": "string"
                         }, 
                         "max": {
                             "type": "long"
@@ -583,7 +583,7 @@
                             "type": "long"
                         }, 
                         "var": {
-                            "type": "long"
+                            "type": "string"
                         }
                     }
                 }, 

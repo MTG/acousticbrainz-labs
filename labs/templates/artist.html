@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block js %}
+<script src="/static/Chart.js"></script>
+<script>
+    var data = {{beattrack|safe}};
+  $(function() {
+      var ctx = document.getElementById("myChart").getContext("2d");
+      var myNewChart = new Chart(ctx).Line(data);
+  });
+</script>
+{% endblock %}
+
+{% block body %}
+
+<div><h1>Tracks found for this artist:</h1></div>
+{% for i in data%}
+<div><a href="http://acousticbrainz.org/{{i.mbid}}">{{i.title}}</a></div>
+{% endfor%}
+
+{% endblock %}

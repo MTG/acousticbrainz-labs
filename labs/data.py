@@ -3,7 +3,7 @@ import config
 from operator import itemgetter
 
 import json
-gt = json.load(open("groundtruth.json"))
+#gt = json.load(open("groundtruth.json"))
 
 def get_meta_for_mbid(mbid):
     conn = psycopg2.connect(config.PG_CONNECT)

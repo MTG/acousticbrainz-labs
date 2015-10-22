@@ -21,7 +21,10 @@
       source: "/autocompletetrack",
       minLength: 2,
     });
-
+    $("#inputartist").autocomplete({
+      source: "/autocompleteartist",
+      minLength: 2,
+    });
     $("#inputtrack").on("autocompleteselect", function (e, ui) {
         e.preventDefault(); // prevent the "value" being written back after we've done our own changes
         this.value = ui.item.label;
@@ -32,6 +35,13 @@
         e.preventDefault();
         window.location = "/track/" + trackmbid;
     });
+
+    $("#artistsubmit").submit(function(e) {
+        e.preventDefault();
+        window.location = "/artist/" + $("#inputartist").val();
+    });
+
+    
   });
   </script>
 {% endblock %}
@@ -43,11 +53,24 @@
         <input type="submit" value="Show">
     </form>
     <p>
+     Search for Artist:
+    <form id="artistsubmit" >
+        <input id="inputartist" type="text">
+        <input type="submit" value="Show">
+    </form>
+    <p>
     Search for track:
     <form id="tracksubmit">
         <input id="inputtrack" type="text">
         <input type="submit" value="Show">
     </form>
+    Search for bpm range:
+    <form id="bpmrange" action="/bpm-source" >
+        from<input name="range_from" type="text">
+        to<input name="range_to" type="text">
+        <input type="submit" value="Show">
+    </form>
+
 
     {% endblock %}
 
