@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+  <div id="homepage" class="row">
+
+    <div class="col-md-7 col-lg-8">
+      <img src="/static/img/logo_big.svg" id="big-logo" />
+      <h2 class="page-title">AcousticBrainz Labs</h2>
+
+      <p>AcousticBrainz labs shows some of the work we are doing </p>
+      <p>For some recent projects, see below</p>
+    {% for post in site.posts %}
+      <li>
+        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+    </div>
+

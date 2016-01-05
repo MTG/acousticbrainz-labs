@@ -1,0 +1,10 @@
+# Site settings
+title: AcousticBrainz Labs
+email: alastair.porter@upf.edu
+description: "AcousticBrainz"
+baseurl: ""
+url: "http://acousticbrainz.org"
+
+# Build settings
+markdown: kramdown
+permalink: /:title

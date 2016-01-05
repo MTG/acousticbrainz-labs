@@ -1,0 +1,23 @@
+
+<head>
+    <meta charset="utf-8" />
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="{{ site.description }}">
+
+    <link rel="icon" sizes="16x16" href="/static/img/favicon-16.png" type="image/png" />
+    <link rel="icon" sizes="32x32" href="/static/img/favicon-32.png" type="image/png" />
+    <link rel="icon" sizes="64x64" href="/static/img/favicon-64.png" type="image/png" />
+    <link rel="icon" sizes="128x128" href="/static/img/favicon-128.png" type="image/png" />
+    <link rel="icon" sizes="256x256" href="/static/img/favicon-256.png" type="image/png" />
+
+    <link href="/static/css/main.css" rel="stylesheet" media="screen" />
+</head>
+
+<!--
+<head>
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+</head>
+-->
