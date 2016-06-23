@@ -1,0 +1,18 @@
+We are trying to convert the JSON data into different formats for
+low space consumption and faster retrieval. Below is a description 
+of each of the datatypes.
+
+1. Protobuf: The .proto file which is the schema contains the info
+about the structure of the datatype. 
+A few things to be noted which might be confusing:
+-> To shorten the .proto file I have made a message named "statistics",
+   which contains different statistical fields like dmean, dmean2, dvar,
+   dvar2, max, mean, median, min and var. Since a lot of features were
+   using these fields together, it was better to declare it as a seperate
+   message and use it anywhere it fits.
+-> Similarly we have another message named "detailed_statistics" which 
+   contain the same fields as the "statistics" but now they are arrays
+   rather than single values.
+-> Similarly we have another message named "cov_statistics" which contain,
+   the fields mean, cov and icov, mean is a list of doubles and cov and icov
+   are list of list of doubles which are defined seperately. 

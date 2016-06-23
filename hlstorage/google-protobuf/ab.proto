@@ -1,0 +1,186 @@
+package acousticbrainz;
+
+message song_features{
+    required low_level lowlevel = 1;
+    required metadata metadata = 2;
+    required rhythm rhythm = 3;
+    required tonal tonal = 4;
+    
+}
+
+message low_level{
+    required double average_loudness = 1;
+    required statistics barkbands_crest = 2; 
+    required statistics barkbands_flatness_db = 3;   
+    required statistics barkbands_kurtosis = 4;  
+    required statistics barkbands_skewness = 5;  
+    required statistics barkbands_spread = 6;   
+    required statistics dissonance = 7;
+    required double dynamic_complexity = 8;
+    required statistics erbbands_crest = 9;
+    required statistics erbbands_flatness_db = 10;
+    required statistics erbbands_kurtosis = 11;
+    required statistics erbbands_skewness = 12;
+    required statistics erbbands_spread = 13;
+    required statistics hfc = 14;
+    required statistics melbands_crest = 15;
+    required statistics melbands_flatness_db = 16;
+    required statistics melbands_kurtosis = 17;
+    required statistics melbands_skewness = 18;
+    required statistics melbands_spread = 19;
+    required statistics pitch_salience = 20;
+    required statistics silence_rate_20dB = 21;
+    required statistics silence_rate_30dB = 22;
+    required statistics silence_rate_60dB = 23;
+    required statistics spectral_centroid = 24;
+    required statistics spectral_complexity = 25;
+    required statistics spectral_decrease = 26;
+    required statistics spectral_energy = 27;
+    required statistics spectral_energyband_high = 28;
+    required statistics spectral_energyband_low = 29;
+    required statistics spectral_energyband_middle_high = 30;
+    required statistics spectral_energyband_middle_low = 31;
+    required statistics spectral_entropy = 32;
+    required statistics spectral_flux = 33;
+    required statistics spectral_kurtosis = 34;
+    required statistics spectral_rms = 35;
+    required statistics spectral_rolloff = 36;
+    required statistics spectral_skewness = 37;
+    required statistics spectral_spread = 38;
+    required statistics spectral_strongpeak = 39;
+    required statistics zerocrossingrate = 40;
+    required detailed_statistics barkbands = 41;
+    required detailed_statistics erbbands = 42;
+    required cov_statistics gfcc = 43;
+    required detailed_statistics melbands = 44;
+    required cov_statistics mfcc = 45;
+    required detailed_statistics spectral_contrast_coeffs = 46;
+    required detailed_statistics spectral_contrast_valleys = 47;
+    
+}   
+
+message statistics{
+    required double dmean = 1;
+    required double dmean2 = 2;
+    required double dvar = 3;
+    required double dvar2 = 4;
+    required double max = 5;
+    required double mean = 6;
+    required double median = 7;
+    required double min = 8;
+    required double var = 9;
+}
+
+message detailed_statistics{
+    repeated double dmean = 1 [packed = true];
+    repeated double dmean2 = 2 [packed = true];     
+    repeated double  dvar = 3 [packed = true];
+    repeated double dvar2 = 4 [packed = true];
+    repeated double max = 5 [packed = true];
+    repeated double mean = 6 [packed = true];
+    repeated double median = 7 [packed = true];
+    repeated double  min = 8 [packed = true];
+    repeated double var = 9 [packed = true];      
+}
+
+message cov_statistics{
+    repeated double mean = 1 [packed = true];
+    required  list_of_list_of_doubles cov = 2;
+    required list_of_list_of_doubles icov = 3;
+}
+message list_of_doubles{
+    repeated double value = 1 [packed = true];
+}
+
+message list_of_list_of_doubles{
+    repeated list_of_doubles nested_list = 1;
+}
+
+message metadata{
+    message audio_Properties{
+        required int32 analysis_sample_rate = 1;
+        required int32 bit_rate = 2;
+        required int32 equal_loudness = 3;
+        required float length = 4;
+        required int32 lossless = 5;
+        required float replay_gain = 6;
+        required int32 sample_rate = 7;
+        required string codec = 8;
+        required string downmix = 9;
+        required string md5_encoded = 10;
+    }
+    
+    required audio_Properties audio_properties = 1;
+    
+    message Tags{
+        required string file_name = 1;
+        required string album = 2;
+        required string albumartist = 3;
+        required string albumartistsort = 4;
+        required string artist = 5;
+        required string artistsort = 6;
+        required string date = 7;
+        required string discnumber = 8;
+        required string encoding = 9;
+        required string label = 10;
+        required string media = 11;
+        required string musicbrainz_album_release_country = 12;
+        required string musicbrainz_album_status = 13;
+        required string musicbrainz_album_type = 14;
+        required string musicbrainz_albumartistid = 15;
+        required string musicbrainz_albumid = 16;
+        required string musicbrainz_artistid = 17;     
+        required string musicbrainz_releasegroupid = 18;
+        required string musicbrainz_trackid = 19;
+        required string originaldate = 20;
+        required string script = 21;
+        required string title = 22;
+        required string tracknumber = 23; 
+    }
+   
+    required Tags tags = 2;
+    
+    message Version{
+        required string essentia = 1;
+        required string essentia_build_sha = 2;
+        required string essentia_git_sha = 3;
+        required string extractor = 4;
+    }
+    
+    required Version version = 3;
+}
+
+message rhythm{
+    required int32 beats_count = 1;
+    required statistics beats_loudness = 2;
+    required float bpm = 3;
+    required statistics bpm_histogram_first_peak_bpm = 4;
+    required statistics bpm_histogram_first_peak_spread = 5;
+    required statistics bpm_histogram_first_peak_weight = 6;
+    required statistics bpm_histogram_second_peak_bpm = 7;
+    required statistics bpm_histogram_second_peak_spread = 8;
+    required statistics bpm_histogram_second_peak_weight = 9;
+    required float danceability = 10;
+    required float onset_rate = 11;
+    required detailed_statistics beats_loudness_band_ratio = 12;
+    repeated double beats_position = 13 [packed = true];
+}
+
+message tonal{
+    required float chords_changes_rate = 1;
+    required float chords_number_rate = 2;
+    required statistics chords_strength = 3;
+    required statistics hpcp_entropy = 4;
+    required float key_strength = 5;
+    required float tuning_diatonic_strength = 6;
+    required float tuning_equal_tempered_deviation = 7;
+    required float tuning_frequency = 8;
+    required float tuning_nontempered_energy_ratio = 9;
+    required detailed_statistics hpcp = 10;
+    repeated double chords_histogram = 11 [packed = true];
+    repeated double thpcp = 12 [packed = true];
+    required string chords_key = 13;
+    required string chords_scale = 14;
+    required string key_key = 15;
+    required string key_scale = 16;
+}  
