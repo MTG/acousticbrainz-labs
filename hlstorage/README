@@ -16,3 +16,7 @@ A few things to be noted which might be confusing:
 -> Similarly we have another message named "cov_statistics" which contain,
    the fields mean, cov and icov, mean is a list of doubles and cov and icov
    are list of list of doubles which are defined seperately. 
+
+2. Msgpack: No schema required. 
+
+3. CBOR: No schema required. 
