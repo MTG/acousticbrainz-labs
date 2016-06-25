@@ -20,3 +20,9 @@ A few things to be noted which might be confusing:
 2. Msgpack: No schema required. 
 
 3. CBOR: No schema required. 
+
+4. HDF5: No schema required. In this the schema is incorporated itself in 
+the datafile which is leading it to take much more space than the others.
+As per the resources it does well only in case of large number of rows in 
+a table and hence might not work well for us here. It should be tried for 
+the low level data again.
