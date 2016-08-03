@@ -1,0 +1,53 @@
+---
+layout: post
+title:  "Mining metadata from the web for AcousticBrainz (DLfM 2016)"
+date:   2016-08-1 00:00:00
+categories:  papers
+---
+
+For the [3rd International Digital Libraries for Musicology
+workshop](http://www.transforming-musicology.org/dlfm2016/) we presented
+a new project which we are using to collect music metadata to improve the
+quality of data that we generate using AcousticBrainz.
+
+[Read the paper here](http://mtg.upf.edu/node/3533)
+
+
+
+## MetaDB server
+
+MetaDB is our service for collecting metadata from different websites.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[https://github.com/MTG/metadb](https://github.com/MTG/metadb)
+
+It stores metadata referenced by MusicBrainz Identifiers (MBIDs), which come from AcousticBrainz.
+When a new MBID is submitted to MetaDB, it first looks up textual metadata for this item
+from MusicBrainz, and then searches a number of music-related websites using _scrapers_, which
+access an API or read the contents of webpages.
+
+We currently have scrapers for
+
+ * Last.fm
+ * AllMusic
+ * Itunes
+ * MusicBrainz
+ * Discogs
+
+You can download MetaDB from https://github.com/MTG/metadb. To set up and run the service
+yourself, see the [README.md](https://github.com/MTG/metadb/blob/master/README.md) and
+[INSTALL.md](https://github.com/MTG/metadb/blob/master/INSTALL.md) files.
+To contribute your own scrapers, you can submit a
+ [pull request](https://help.github.com/articles/using-pull-requests/) to the
+MetaDB repository.
+
+## MetaDB 2016 Dataset
+
+We are publishing a dataset of genre annotations from different websites for items which
+were in AcousticBrainz as of the time of our research (May 2016).
+
+
+
+## Genre analysis
+
+We performed an analysis on the above dataset, to see how well
+The code which we used to perform this analysis is available at https://github.com/MTG/acousticbrainz-labs/tree/master/dlfm2016
