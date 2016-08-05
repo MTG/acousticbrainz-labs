@@ -5,12 +5,9 @@ date:   2016-08-1 00:00:00
 categories:  papers
 ---
 
-For the [3rd International Digital Libraries for Musicology
-workshop](http://www.transforming-musicology.org/dlfm2016/) we presented
-a new project which we are using to collect music metadata to improve the
-quality of data that we generate using AcousticBrainz.
+One of our research goals is mining music annotations and creation of annotated datasets. For the [3rd International Digital Libraries for Musicology workshop](http://www.transforming-musicology.org/dlfm2016/) we presented a new project which we are using to collect music metadata to improve the quality of data that we generate using AcousticBrainz.
 
-[Read the paper here](http://mtg.upf.edu/node/3533)
+[Read the paper here.](http://mtg.upf.edu/node/3533)
 
 
 
@@ -40,14 +37,27 @@ To contribute your own scrapers, you can submit a
  [pull request](https://help.github.com/articles/using-pull-requests/) to the
 MetaDB repository.
 
-## MetaDB 2016 Dataset
+## MetaDB 2016 Datasets
+We are publishing datasets of genre annotations from different websites for recordings which were in AcousticBrainz as of the time of our research (May 2016). This includes explicit genre annotations from AllMusic, Discogs and Itunes, and genre annotations inferred from Last.fm tags (for the latter see [another blog post](http://labs.acousticbrainz.org/lastfm-genre-annotations)).
 
-We are publishing a dataset of genre annotations from different websites for items which
-were in AcousticBrainz as of the time of our research (May 2016).
+TODO explain the format.
 
+### AllMusic
+Genre, sub-genre, and sub-sub-genre annotations (1186 genres in total including 21 top-level genres) for 764,555 MBIDs proceeding from AllMusic, an online music guide edited by an expert editorial staff. The annotations are done on release (album) level. 
+
+The top 5 top-level genres are: Pop/Rock (62.34%), Electronic (10.20%), Jazz (9.15%), International (7.14%) and Classical (6.57%).
+
+### Discogs
+Genre and sub-genre annotations (491 genres in total including 15 top-level genres) for 720,597 MBIDs from Discogs, a community-build music database. Annotations are done on release level. 
+
+The top 5 top-level genres are: Rock (50.00%), Electronic (28.03%), Pop (7.78%), Jazz (7.65%), Classical (5.95%).
+
+##Itunes
+Genre and sub-genre annotations (253 genres in total including 38 top-level genres) for 957,529 MBIDs from Itunes music catalog done on track level.
+
+The top 5 top-level genres are: Rock (28.51%), Alternative (14.21%), Pop (11.16%), Electronic (7.27%), Jazz (6.20%).
 
 
 ## Genre analysis
 
-We performed an analysis on the above dataset, to see how well
-The code which we used to perform this analysis is available at https://github.com/MTG/acousticbrainz-labs/tree/master/dlfm2016
+We performed an analysis on the above dataset, to see how well explicit genre annotations done by music experts can be approximated by folksonomies. The code which we used to perform this analysis is available at https://github.com/MTG/acousticbrainz-labs/tree/master/dlfm2016
