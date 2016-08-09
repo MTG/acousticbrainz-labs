@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Mining metadata from the web for AcousticBrainz (DLfM 2016)"
-date:   2016-08-1 00:00:00
+date:   2016-08-12 00:00:00
 categories:  papers
 ---
 
@@ -43,12 +43,12 @@ We are publishing datasets of genre annotations from different websites for reco
 TODO explain the format.
 
 ### AllMusic
-Genre, sub-genre, and sub-sub-genre annotations (1186 genres in total including 21 top-level genres) for 764,555 MBIDs proceeding from AllMusic, an online music guide edited by an expert editorial staff. The annotations are done on release (album) level. 
+Genre, sub-genre, and sub-sub-genre annotations (1186 genres in total including 21 top-level genres) for 764,555 MBIDs proceeding from AllMusic, an online music guide edited by an expert editorial staff. The annotations are done on release (album) level.
 
 The top 5 top-level genres are: Pop/Rock (62.34%), Electronic (10.20%), Jazz (9.15%), International (7.14%) and Classical (6.57%).
 
 ### Discogs
-Genre and sub-genre annotations (491 genres in total including 15 top-level genres) for 720,597 MBIDs from Discogs, a community-build music database. Annotations are done on release level. 
+Genre and sub-genre annotations (491 genres in total including 15 top-level genres) for 720,597 MBIDs from Discogs, a community-build music database. Annotations are done on release level.
 
 The top 5 top-level genres are: Rock (50.00%), Electronic (28.03%), Pop (7.78%), Jazz (7.65%), Classical (5.95%).
 

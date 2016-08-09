@@ -1,18 +1,20 @@
 ---
 layout: post
 title:  "Cross-collection evaluation for music classification tasks (ISMIR 2016)"
-date:   2016-08-1 00:00:00
+date:   2016-08-08 00:00:00
 categories:  papers
 ---
 
 In the [The 17th International Society for Music Information Retrieval Conference (ISMIR 2016)](
-https://wp.nyu.edu/ismir2016/) conference we proposed a method of evaluating the accuracy of
-a dataset
+https://wp.nyu.edu/ismir2016/) conference we proposed a method of evaluating
+the accuracy of a classification model by comparing it to a separately
+created dataset. [Read the paper](http://mtg.upf.edu/node/3498).
 
-http://mtg.upf.edu/node/3498
-
-The code which we developed to perform this analysis is available at
+The code which we developed to perform this analysis will be available at
 https://github.com/MTG/acousticbrainz-labs/tree/master/cross-eval
 
 We provide here additional results which we were unable to include in the
 paper due to size constraints.
+
+This document is currently incomplete, but will be added to over the week
+of the ISMIR conference.
