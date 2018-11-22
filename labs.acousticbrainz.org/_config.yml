@@ -7,4 +7,4 @@ url: "http://acousticbrainz.org"
 
 # Build settings
 markdown: kramdown
-permalink: /:title
+permalink: /:title.html
