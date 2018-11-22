@@ -12,7 +12,7 @@
 
 git describe --tags --dirty --always > .git-version
 
-TAG=${2:-beta}
+TAG=${1:-beta}
 
 echo "Building AcousticBrainz labs image with tag $TAG..."
 docker build -t metabrainz/acousticbrainz-labs:$TAG \
