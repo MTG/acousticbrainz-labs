@@ -23,10 +23,10 @@ See the README.md file in that directory for more information on how to run it.
 
 We provide the following files containing the data of this mapping
 
- * [`msd-mbid-2016-01-abz-mbids.csv.bz2`](/download/msdtombid/msd-mbid-2016-01-abz-mbids.csv.bz2) (33M): A unique list of MusicBrainz IDs present in AcousticBrainz at the time of the matching
- * [`msd-mbid-2016-01-results.json.bz2`](/download/msdtombid/msd-mbid-2016-01-results.json.bz2) (195M): A mapping of MSD IDs and metadata to Recordings in MusicBrainz
- * [`msd-mbid-2016-01-results-ab.json.bz2`](/download/msdtombid/msd-mbid-2016-01-results-ab.json.bz2) (60M): The same mapping file, containing MBIDs only present in AcousticBrainz (filtered with the first file)
- * [`msd-mbid-2016-01-results-ab.csv.bz2`](/download/msdtombid/msd-mbid-2016-01-results-ab.csv.bz2) (13M): The AB mapping file in CSV format, with simplified metadata
+ * [`msd-mbid-2016-01-abz-mbids.csv.bz2`](ftp://ftp.acousticbrainz.org/pub/acousticbrainz/acousticbrainz-labs/download/msdtombid/msd-mbid-2016-01-abz-mbids.csv.bz2) (33M): A unique list of MusicBrainz IDs present in AcousticBrainz at the time of the matching
+ * [`msd-mbid-2016-01-results.json.bz2`](ftp://ftp.acousticbrainz.org/pub/acousticbrainz/acousticbrainz-labs/download/msdtombid/msd-mbid-2016-01-results.json.bz2) (195M): A mapping of MSD IDs and metadata to Recordings in MusicBrainz
+ * [`msd-mbid-2016-01-results-ab.json.bz2`](ftp://ftp.acousticbrainz.org/pub/acousticbrainz/acousticbrainz-labs/download/msdtombid/msd-mbid-2016-01-results-ab.json.bz2) (60M): The same mapping file, containing MBIDs only present in AcousticBrainz (filtered with the first file)
+ * [`msd-mbid-2016-01-results-ab.csv.bz2`](ftp://ftp.acousticbrainz.org/pub/acousticbrainz/acousticbrainz-labs/download/msdtombid/msd-mbid-2016-01-results-ab.csv.bz2) (13M): The AB mapping file in CSV format, with simplified metadata
 
 ## File format
 

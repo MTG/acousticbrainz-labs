@@ -30,7 +30,7 @@ the following rosetta stone buckets:
 
 We provide the following file
 
- * [`millionsongdataset_echonest.tar.bz2`](/download/msdrosetta/millionsongdataset_echonest.tar.bz2) (461M): The result of looking up `/song/profile` in the Echo Nest API for all Song IDs in the Million Song Dataset.
+ * [`millionsongdataset_echonest.tar.bz2`](ftp://ftp.acousticbrainz.org/pub/acousticbrainz/acousticbrainz-labs/download/msdrosetta/millionsongdataset_echonest.tar.bz2) (461M): The result of looking up `/song/profile` in the Echo Nest API for all Song IDs in the Million Song Dataset.
 
 ## File contents and accuracy
 
