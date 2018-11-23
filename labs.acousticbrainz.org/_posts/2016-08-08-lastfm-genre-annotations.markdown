@@ -58,7 +58,7 @@ MBIDs contain annotations in all three datasets).
 
 #### Last.fm beets mapping
 
-For details of these files, read our [paper and description](/ismir2016.html).
+For details of these files, read our [paper and description](/ismir2016).
 
 * [genres-tree.yaml](https://github.com/beetbox/beets/blob/0c7823b4/beetsplug/ lastgenre/genres- tree.yaml) - The list of genres from the [beets](http://beets.io) music tagger which we use as a core list of genres.
 [2016-08-lastfm-beets-genres.json.bz2](ftp://ftp.acousticbrainz.org/pub/acousticbrainz/acousticbrainz-labs/download/lfmgenre/2016-08-lastfm-beets-genres.json.bz2) (17M) - User tags for recordings on last.fm which appear in the genre list.
@@ -68,7 +68,7 @@ For details of these files, read our [paper and description](/ismir2016.html).
 #### Last.fm mappings to other services
 
 These files contain annotations of recordings for which we also have a matching
-annotation in another service. See our [DLfM](/dlfm2016.html) project for more
+annotation in another service. See our [DLfM](/dlfm2016) project for more
 information about this data.
 
 * [2016-08-lastfm-discogs-annotated.json.bz2](ftp://ftp.acousticbrainz.org/pub/acousticbrainz/acousticbrainz-labs/download/lfmgenre/2016-08-lastfm-discogs-annotated.json.bz2) (24M)
