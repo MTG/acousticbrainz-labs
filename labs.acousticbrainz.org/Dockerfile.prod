@@ -1,10 +1,10 @@
-FROM nginx:1.13.5
+FROM nginx:1.15.6
 
-RUN apt-get update && apt-get install -y --no-install-recommends jekyll node-less
+RUN apt-get update && apt-get install -y --no-install-recommends jekyll node-less && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir /code
-WORKDIR /code
-COPY . /code
+RUN mkdir /site
+WORKDIR /site
+COPY . /site
 
 RUN jekyll build -s labs.acousticbrainz.org -d  /usr/share/nginx/html
 RUN lessc /usr/share/nginx/html/static/css/main.less /usr/share/nginx/html/static/css/main.css
