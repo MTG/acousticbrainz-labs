@@ -3,8 +3,8 @@ title: AcousticBrainz Labs
 email: alastair.porter@upf.edu
 description: "AcousticBrainz"
 baseurl: ""
-url: "http://acousticbrainz.org"
+url: "https://acousticbrainz.org"
 
 # Build settings
 markdown: kramdown
-permalink: /:title.html
+permalink: /:title/
