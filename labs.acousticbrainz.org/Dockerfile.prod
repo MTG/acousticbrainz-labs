@@ -6,7 +6,7 @@ RUN mkdir /site
 WORKDIR /site
 COPY . /site
 
-RUN jekyll build -s labs.acousticbrainz.org -d  /usr/share/nginx/html
+RUN jekyll build -d  /usr/share/nginx/html
 RUN lessc /usr/share/nginx/html/static/css/main.less /usr/share/nginx/html/static/css/main.css
 
 COPY nginx.conf /etc/nginx/nginx.conf
