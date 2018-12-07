@@ -20,12 +20,17 @@ def get_id_list_from_file(id_list_file):
 
 def get_count_for_id_chunk(id_chunk, count_mapping):
 
-    chunklist = ";".join(id_chunk)
+    new_id_chunk = []
+    for el in id_chunk: 
+        if el not in count_mapping: 
+            new_id_chunk.append(el)
+
+    chunklist = ";".join(new_id_chunk)
     payload = {'recording_ids': chunklist}
 
     r = requests.get('https://acousticbrainz.org/api/v1/count', params=payload)
 
-    all_ids = set(id_chunk)
+    all_ids = set(new_id_chunk)
     found_ids = set(r.json().keys())
     missing_ids = all_ids - found_ids 
 
@@ -46,7 +51,8 @@ def get_count_for_all_ids(id_list):
 
     for id_chunk in list(chunks(id_list, 10)):
 
-        get_count_for_id_chunk(id_chunk, count_mapping)
+        if id_chunk not in count_mapping: 
+            get_count_for_id_chunk(id_chunk, count_mapping)
 
     return count_mapping
 
@@ -70,6 +76,3 @@ if __name__ == "__main__":
 
     id_list_file = 'mbid_list.txt'
     count_mapping = main(id_list_file)
-
-
-
