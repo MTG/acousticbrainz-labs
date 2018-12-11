@@ -59,7 +59,7 @@ def get_count_for_all_ids(id_list):
 
 def write_count_to_json(count_mapping):
 
-    with open('data.json', 'w+') as f: 
+    with open('id_counts.json', 'w+') as f: 
         json.dump(count_mapping, f, indent=4)
 
 
