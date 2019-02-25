@@ -1,11 +1,9 @@
+import argparse
 import csv
-import requests
-import json
 
 
-def get_mbid_from_file(mbid_file):
-
-    mbids = []
+def load_mbids_from_file(mbid_file):
+    """Load a file of MBIDs"""
     with open(mbid_file, 'r') as f:
         mbids = f.read().splitlines()   
 
@@ -13,9 +11,14 @@ def get_mbid_from_file(mbid_file):
 
 
 def get_gid_map(gid_map_file): 
-
+    """Load the recording redirect file into a dictionary
+    Args:
+        gid_map_file: a filename containing mbid redirects in CSV format
+    Returns:
+        a dictionary of {line[0]: line[1]} for each line in the file
+    """
     gid = {}
-    with open(gid_map_file, 'rb') as csvfile: 
+    with open(gid_map_file, 'r') as csvfile:
         reader = csv.reader(csvfile)
         for row in reader:
             gid[row[0]] = row[1]
@@ -30,34 +33,29 @@ def get_full_id_list_from_map(mbids, gid):
         if el in gid:
             id_list.append(el)
             id_list.append(gid[el])
-
         else: 
             id_list.append(el)
 
-    id_list = list(set(id_list))
+    id_list = sorted(list(set(id_list)))
 
     return id_list
 
 
-def write_id_list_to_file(id_list):
-
-    with open('mbid_list.txt', 'w+') as f:
-        for row in id_list: 
-            f.write(row + '\n')
-
-
 def main(mbid_file, gid_map_file):
+    """"""
 
-    mbids = get_mbid_from_file(mbid_file)
+    mbids = load_mbids_from_file(mbid_file)
     gid = get_gid_map(gid_map_file)
     id_list = get_full_id_list_from_map(mbids, gid)
-    write_id_list_to_file(id_list)
 
-    return = id_list
+    for mbid in id_list:
+        print(mbid)
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Find all redirect MBIDs that exist for a given list of MBIDs')
+    parser.add_argument('mbid_list', help='A file with a list of MBIDs')
+    parser.add_argument('redirect_list', help='A csv file containing MBID redirects')
+    args = parser.parse_args()
 
-    mbid_file = 'MLHD_recording_mbids.txt'
-    gid_map_file = 'recording_gid_redirect.csv'
-    id_list = main(mbid_file, gid_map_file)
+    main(args.mbid_list, args.redirect_list)
