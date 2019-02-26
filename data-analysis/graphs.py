@@ -9,8 +9,8 @@ def init_setup():
 
     sns.set(rc={'figure.figsize':(15,8)})
     sns.set(style="white", context="talk")
-
-
+   
+    
 def genre_pie(genre_counts, genre_list, name):
 
     fig, ax = plt.subplots(subplot_kw=dict(aspect="equal"))
@@ -99,6 +99,8 @@ def features_gen_box(g_dict, l_dict, name):
     
     ax = sns.boxplot(x=np.array(x), y=np.array(y), palette='Set3')
     sns.despine(left=True, bottom=True)
+    ax.set_xlabel('genre_rosamerica')
+    ax.set_ylabel('average_loudness')
     ax.set_title(name)
     
     
@@ -135,7 +137,7 @@ def year_bar(year_counts, year_keys, quantiles):
     plt.show()
     
     
-def features_years_box(y_dict, l_dict):
+def features_years_box(y_dict, l_dict, name):
     
     x = []
     y = []
@@ -148,13 +150,13 @@ def features_years_box(y_dict, l_dict):
     x_int = np.array(x).astype(int)
     
     plt.figure(figsize=(18,6))
-    ax = sns.boxplot(x=x_int, y=np.array(y), palette='GnBu')
+    ax = sns.boxplot(x=x_int, y=np.array(y), color='xkcd:lightblue')
     
     labels = set_year_labels(ax)
     
     ax.set_xticklabels(labels, ha="center")
 
-    plt.ylabel('average_loudness')
+    plt.ylabel(name)
     plt.xlabel('year')
     sns.despine(left=True, bottom=True)
     plt.show()
