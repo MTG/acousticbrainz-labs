@@ -71,3 +71,111 @@ def genre_map(genre_counts, genre_list, name, th):
     plt.axis('off')
     plt.title(name)
     plt.show() 
+    
+    
+def genre_mood_bar(mood, genre_counts, pct, name): 
+    
+    ax = sns.barplot(x=genre_counts.keys(), y=genre_counts, hue=mood, palette='Paired')
+
+    i = 0
+    for p in ax.patches:
+        ax.text(p.get_x()+p.get_width()/2., p.get_height() + 10., '{:1.2f}'.format(pct[i]) + '%', ha='center', fontsize=15) 
+        i += 1
+
+    ax.set_xlabel(name)
+    ax.set_ylabel('count')
+    sns.despine(left=True, bottom=True)
+    
+    
+def features_gen_box(g_dict, l_dict, name):
+    
+    x = []
+    y = []
+    for mbid in g_dict:
+
+        if mbid in l_dict: 
+            x.append(g_dict[mbid])
+            y.append(l_dict[mbid])
+    
+    ax = sns.boxplot(x=np.array(x), y=np.array(y), palette='Set3')
+    sns.despine(left=True, bottom=True)
+    ax.set_title(name)
+    
+    
+def set_year_labels(ax):
+
+    labels = []
+
+    for label in ax.get_xticklabels():
+        if label not in ax.get_xticklabels()[0::5]:
+            labels.append(plt.text(0, 0, ''))
+        else:
+            labels.append(label)
+            
+    return labels
+
+
+def year_bar(year_counts, year_keys, quantiles):
+    
+    plt.figure(figsize=(18,6))
+
+    ax = sns.barplot(x=year_keys, y=year_counts, palette='GnBu')
+
+    labels = set_year_labels(ax)
+
+    ax.set_xticklabels(labels, ha="center")
+
+    plt.axvline(quantiles[0.25], 0, 1)
+    plt.axvline(quantiles[0.50], 0, 1)
+    plt.axvline(quantiles[0.75], 0, 1)
+
+    plt.ylabel('count')
+    plt.xlabel('year')
+    sns.despine(left=True, bottom=True)
+    plt.show()
+    
+    
+def features_years_box(y_dict, l_dict):
+    
+    x = []
+    y = []
+    for mbid in y_dict:
+
+        if mbid in l_dict and y_dict[mbid] >= 1950.0: 
+            x.append(y_dict[mbid])
+            y.append(l_dict[mbid]) 
+
+    x_int = np.array(x).astype(int)
+    
+    plt.figure(figsize=(18,6))
+    ax = sns.boxplot(x=x_int, y=np.array(y), palette='GnBu')
+    
+    labels = set_year_labels(ax)
+    
+    ax.set_xticklabels(labels, ha="center")
+
+    plt.ylabel('average_loudness')
+    plt.xlabel('year')
+    sns.despine(left=True, bottom=True)
+    plt.show()
+    
+    
+def key_est_bar(keys, key_counts):
+    
+    #Compute percentages
+    a = key_counts[0 : int(len(key_counts)/2)].values
+    b = key_counts[int(len(key_counts)/2):].values
+
+    pct = 100 * a / (a+b)
+    pct = np.append(pct, 100 - pct)
+    
+    ax = sns.barplot(x=np.array(keys[1]), y=key_counts, hue=np.array(keys[0]), palette='Paired')
+
+    i = 0
+    for p in ax.patches:
+        ax.text(p.get_x()+p.get_width()/2., p.get_height() + 10., '{:1.2f}'.format(pct[i]) + '%', ha='center', fontsize=14) 
+        i += 1
+
+    ax.set_xlabel('tonic')
+    ax.set_ylabel('count')
+    sns.despine(left=True, bottom=True)
