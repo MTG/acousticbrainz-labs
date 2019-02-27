@@ -1,0 +1,15 @@
+{
+  "blu" : "blues",
+  "cla" : "classical",
+  "cou" : "country",
+  "dan" : "dance",
+  "dis" : "disco",
+  "hip" : "hip-hop",
+  "jaz" : "jazz",
+  "met" : "metal",
+  "pop" : "pop",
+  "rhy" : "rhythm & blues",
+  "reg" : "reggae",
+  "roc" : "rock",
+  "spe" : "speech"
+}
