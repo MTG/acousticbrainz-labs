@@ -1,0 +1,10 @@
+{
+  "cla" : "classical",
+  "dan" : "dance",
+  "hip" : "hip-hop",
+  "jaz" : "jazz",
+  "pop" : "pop",
+  "rhy" : "rhythm & blues",
+  "roc" : "rock",
+  "spe" : "speech"
+}

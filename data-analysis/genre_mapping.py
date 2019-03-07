@@ -2,10 +2,10 @@ import json
 import pandas as pd
 
 
-def map(genre):
+def map(genre, mapping_file):
 
     gen_new = []
-    with open('genre_mapping.json') as f:
+    with open(mapping_file) as f:
         data = json.load(f)
         
         for el in genre:
